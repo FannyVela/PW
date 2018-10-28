@@ -4,14 +4,6 @@ body {
     text-align: center;
 }
 
-#header{
-    height: 150px;
-    width: 100%;
-    background-color: #374850;
-    position:absolute
-    top:0px;
-}
-
 .page-container {
     margin: 120px auto 0 auto;
 }
