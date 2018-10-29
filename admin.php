@@ -13,6 +13,7 @@
         <!-- CSS -->
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
         <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/supersized.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/admin.css">
@@ -31,6 +32,17 @@
                 </div>
             </div>
             
+        </div>
+            
+        <div id = "eliminarpreguntasprof" style = "margin-top: 160px; text-align: left; margin-left: 0px; width: 50%">
+            <form action = "admin_profesor.php">
+                <button type = "submit" name = "submit" value = "eliminarpreguntasprof">Editar preguntas profesor</button>
+            </form>
+        </div> 
+        <div id = "eliminarpreguntaspersonal" style = "text-align: left; margin-left: 0px; width: 50%">
+            <form action = "admin_personal.php">
+                <button type = "submit" name = "submit" value = "eliminarpreguntasprof">Editar preguntas personales</button>
+            </form>
         </div> 
     </body>
 </html>

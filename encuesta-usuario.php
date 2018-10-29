@@ -37,12 +37,11 @@
         <br>
         <input type = "text" name = "cod_prof" value = "">
         <br>
-        </form>
       </center>
       <div>
       <?php
            header ('Content-type: text/html; charset=utf-8');
-          $conexion = mysqli_connect("localhost", "root", "", "pw")
+          $conexion = mysqli_connect("localhost", "root", "quevivaperi", "pw")
           or die("Error en la conexion con la bd");
           $preguntas_est = mysqli_query($conexion, "select * from preguntasest")
           or die("Error al cargar las preguntas");
@@ -59,11 +58,12 @@
             echo "<br>";
             $pregunta = mysqli_fetch_array($preguntas_est);
             echo $i .". ". $pregunta['pregunta'] .": ";
+            $id = $pregunta['idPreguntaEst'];
             echo " ";
             for($j = 1; $j <= $num_opciones; $j++)
             {
               
-              if($i == $respuesta['idPreguntaEst'])
+              if($id == $respuesta['idPreguntaEst'])
               {
                 echo "$respuesta[resultado]";
                 if($j == 1)
@@ -101,12 +101,12 @@
             echo "$i. $pregunta[pregunta]";
             ?>
             <br>
-            <input type="radio" name="<?php echo "-$pregunta[idPreguntas]"; ?>" value="NS" checked><?php echo "NS";?>
-            <input type="radio" name="<?php echo "-$pregunta[idPreguntas]"; ?>" value="1"><?php echo "1";?>
-            <input type="radio" name="<?php echo "-$pregunta[idPreguntas]"; ?>" value="2"><?php echo "2";?>
-            <input type="radio" name="<?php echo "-$pregunta[idPreguntas]"; ?>" value="3"><?php echo "3";?>
-            <input type="radio" name="<?php echo "-$pregunta[idPreguntas]"; ?>" value="4"><?php echo "4";?>
-            <input type="radio" name="<?php echo "-$pregunta[idPreguntas]"; ?>" value="5"><?php echo "5";?>
+            <input type="radio" name="<?php echo "-$pregunta[idPregunta]"; ?>" value="NS" checked><?php echo "NS";?>
+            <input type="radio" name="<?php echo "-$pregunta[idPregunta]"; ?>" value="1"><?php echo "1";?>
+            <input type="radio" name="<?php echo "-$pregunta[idPregunta]"; ?>" value="2"><?php echo "2";?>
+            <input type="radio" name="<?php echo "-$pregunta[idPregunta]"; ?>" value="3"><?php echo "3";?>
+            <input type="radio" name="<?php echo "-$pregunta[idPregunta]"; ?>" value="4"><?php echo "4";?>
+            <input type="radio" name="<?php echo "-$pregunta[idPregunta]"; ?>" value="5"><?php echo "5";?>
             <br><br>
             <?php
           }
@@ -115,6 +115,7 @@
       <br>
       <center>
         <input type = "submit" name = "enviar" value = "enviar">
+        </form>
         </center>
        </div>
   

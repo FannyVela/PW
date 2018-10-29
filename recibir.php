@@ -19,7 +19,7 @@
 	$ntest = mysqli_num_rows($test);
 	for($i = 1; $i <= $ntest; $i++)
 	{
-		mysqli_query($conexion, "insert into respuesta_est(id_encuesta, respuesta) values ('$nencuesta', '$_POST[$i]');")
+		mysqli_query($conexion, "insert into respuesta_est(id_encuesta, id_pregunta, respuesta) values ('$nencuesta', '$i', '$_POST[$i]');")
 		or die("Fallo en la insercion de las respuestas del estudiante");
 	}
 
@@ -28,7 +28,8 @@
 
 	for($i = -1; $i >= -$npreguntas; $i--)
 	{
-		mysqli_query($conexion, "insert into respuesta_profesores(id_encuesta, cod_Asig, cod_Prof, respuesta) values ('$nencuesta', 
+		$j = $i*-1;
+		mysqli_query($conexion, "insert into respuesta_profesores(id_encuesta, id_pregunta, cod_Asig, cod_Prof, respuesta) values ('$nencuesta', '$j',
 		  '$_POST[cod_asig]', '$_POST[cod_prof]', '$_POST[$i]');")
 		or die("Fallo en la insercion de las respuestas del profesor");
 	}
