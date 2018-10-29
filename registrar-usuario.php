@@ -19,11 +19,12 @@
     <?php
     session_start();
     $_SESSION['message']='';
+    $_SESSION['mensaje'] = '';
 
      $host_db = "localhost";
      $user_db = "root";
      $pass_db = "";
-     $db_name = "universidad";
+     $db_name = "pw";
      $tbl_name = "usuarios";
 
      $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
@@ -50,8 +51,8 @@
 
                if ($conexion->query($query) === TRUE)
                {
-                    $_SESSION['message'] = "Usuario registrado con éxito";
-                    header("Location: index.php");
+                    $_SESSION['mensaje'] = "Usuario registrado con éxito";
+                    header("Location: login.php");
                 } else {
                     $_SESSION['message'] = "* ERROR: El usuario no se ha podido añadir con éxito.". $query . "<br>" . $conexion->error;
                 }
@@ -72,7 +73,7 @@
 
     <div id ="header">
         <img src="img/Logo_UCA.png" style="margin-top: 20px; margin-left: 40px; float:left;">
-        <h1 style="float:left; margin-left: 33%; margin-top: 4%; color:#eaf1f7;">ENCUESTA</h1>
+        <h1 style="float:left; margin-left: 26%; margin-top: 4%; color:#eaf1f7;">ESCUELA SUPERIOR DE INGENIERÍA</h1>
     </div>
 
         <div class="page-container">
@@ -83,7 +84,7 @@
                 <input type="password" name="password" class="password" placeholder="Password">
                 <input type="password" name="repeatpassword" class="password" placeholder="RepeatPassword">
                 <button type="submit" name="Submit" value ="Registrarme">Enviar</button><br><br>
-                O <a href="index.php">Inicia sesión </a>
+                O <a href="login.php">Inicia sesión </a>
                 <div class="error"><span>+</span></div>
             </form>
         </div>

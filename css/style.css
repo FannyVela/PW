@@ -1,17 +1,5 @@
-body {
-    background: #f8f8f8;
-    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-    text-align: center;
-}
-
 .page-container {
     margin: 120px auto 0 auto;
-}
-
-h1 {
-    font-size: 30px;
-    font-weight: 700;
-    text-shadow: 0 1px 4px rgba(0,0,0,.2);
 }
 
 form {
@@ -25,7 +13,7 @@ a{
     text-decoration: none;
 }
 
-input {
+input[type=text], [type=password]{
     width: 270px;
     height: 42px;
     margin-top: 25px;
@@ -50,11 +38,11 @@ input {
     -ms-transition: all .2s;
 }
 
-input:-moz-placeholder { color: grey; }
-input:-ms-input-placeholder { color: grey; }
-input::-webkit-input-placeholder { color: grey; }
+input[type=text], [type=password]:-moz-placeholder { color: grey; }
+input[type=text], [type=password]:-ms-input-placeholder { color: grey; }
+input[type=text], [type=password]:-webkit-input-placeholder { color: grey; }
 
-input:focus {
+input[type=text], [type=password]:focus {
     outline: none;
     -moz-box-shadow:
         0 2px 3px 0 rgba(0,0,0,.1) inset,

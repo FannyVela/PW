@@ -1,0 +1,53 @@
+#welcome-user{
+    font-size:20px;
+    margin-top: 55px;
+    
+    color:#F4780A;
+}
+
+#menu{
+    float: right;
+   text-align: center;
+    margin-right: 35px;
+    
+}
+
+.icon {
+  width: 13px;
+  height: 13px;
+  color: white;
+}
+
+#boton{
+    background-color: #F4780A;
+    color:white;
+    border:none;
+    padding: 12px;
+    font-size:18px;
+    cursor: pointer;
+    width: 165px;
+    margin-top: 14px;
+    cursor: pointer;    
+}
+
+.links a{
+    text-decoration: none;
+    color:white;
+    display: block;
+    padding: 13px;
+}
+
+.links{
+    background: #F59947;
+    width: 165px;
+    display: none;
+}
+
+.links a:hover{
+    background-color: #F8B578;
+    color:#374850;
+}
+
+#menu:hover .links{
+    display: block;
+}

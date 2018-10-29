@@ -16,17 +16,17 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/main.css">
 
+
     </head>
 
     <?php
 
         session_start();
-        
 
         $host_db = "localhost";
         $user_db = "root";
         $pass_db = "";
-        $db_name = "universidad";
+        $db_name = "pw";
         $tbl_name = "usuarios";
 
         $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
@@ -66,7 +66,7 @@
              }
         } else{
             $_SESSION['message'] = '';
-        }
+        } 
       mysqli_close($conexion);
     ?>
 
@@ -74,12 +74,12 @@
 
     <div id ="header">
         <img src="img/Logo_UCA.png" style="margin-top: 20px; margin-left: 40px; float:left;">
-        <h1 style="float:left; margin-left: 33%; margin-top: 4%; color:#eaf1f7;">ENCUESTA</h1>
+        <h1 style="float:left; margin-left: 26%; margin-top: 4%; color:#eaf1f7;">ESCUELA SUPERIOR DE INGENIERÍA</h1>
     </div>
         
         <div class="page-container">
             <h1 style="color:#294a55;">Inicia sesión</h1>
-            <form action="index.php" method="post">
+            <form action="login.php" method="post">
                 <div id="error"><?= $_SESSION['message'] ?></div>
                 <input type="text" name="username" class="username" placeholder="Username" >
                 <input type="password" name="password" class="password" placeholder="Password">

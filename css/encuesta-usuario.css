@@ -1,0 +1,17 @@
+#bienvenida{
+    float: right;
+   text-align: center;
+    margin-right: 35px;
+    
+}
+
+#welcome-user{
+    font-size:20px;
+    margin-top: 55px;
+    
+    color:#F4780A;
+}
+
+#cerrar-sesion{
+    color:#F4780A;
+}
