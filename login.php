@@ -70,7 +70,7 @@
       mysqli_close($conexion);
     ?>
 
-    <body>
+    <body style="display:block;">
 
     <div id ="header">
         <img src="img/Logo_UCA.png" style="margin-top: 20px; margin-left: 40px; float:left;">
@@ -78,6 +78,7 @@
     </div>
         
         <div class="page-container">
+        
             <h1 style="color:#294a55;">Inicia sesión</h1>
             <form action="login.php" method="post">
                 <div id="error"><?= $_SESSION['message'] ?></div>

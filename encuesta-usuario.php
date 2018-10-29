@@ -26,13 +26,13 @@
             
     </div> 
     <center>
-      <h1>Encuesta de satisfaccion</h1>
+      <h1 style="margin-top:250px;">Encuesta de satisfaccion</h1>
 
-      <form action = "recibir.php" method="POST">
+      <form style="margin:0;" action = "recibir.php" method="POST">
         Codigo de la asignatura:
         <br>
         <input type = "text" name = "cod_asig" value = "">
-        <br>
+        <br><br>
         Codigo del profesor:
         <br>
         <input type = "text" name = "cod_prof" value = "">
