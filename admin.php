@@ -1,5 +1,24 @@
 <?php
    session_start();
+
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        if($_SESSION['username'] == 'admin')
+        {
+            
+        } else
+        {
+            echo "PAGINA DISPONIBLE SOLO PARA EL ADMINISTRADOR.<br>";
+            echo "<br><a href='login.php'>Login</a>";
+            exit;
+        }
+
+    } else {
+        echo "Esta pagina es solo para usuarios registrados.<br>";
+        echo "<br><a href='login.php'>Login</a>";
+        echo "<br><br><a href='registrar-usuario.php'>Registrarme</a>";
+
+        exit;
+        }
 ?>
 
 <html>
@@ -14,14 +33,13 @@
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/supersized.css">
-        <link rel="stylesheet" href="css/main.css">
+     <!--   <link rel="stylesheet" href="css/supersized.css">-->
         <link rel="stylesheet" href="css/admin.css">
     </head>
     <body>
         <div id ="header">
-            <img src="img/Logo_UCA.png" style="margin-top: 20px; margin-left: 40px; float:left;">
-            <h1 style="float:left; margin-left: 23%; margin-top: 4%; color:#eaf1f7;">ESCUELA SUPERIOR DE INGENIERÍA</h1>
+            <img id="logoUca"src="img/Logo_UCA.png">
+            <h1 id="tituloESI">ESCUELA SUPERIOR DE INGENIERÍA</h1>
             <div id="menu">
                 <h2 id="welcome-user">¡Bienvenido <?= $_SESSION['username'] ?>!</h2><br>    
                 <button id="boton">MENU <img class = "icon" src="img/icono/menu.svg" alt="menu"></button>
@@ -33,16 +51,29 @@
             </div>
             
         </div>
+        <div>
             
-        <div id = "eliminarpreguntasprof" style = "margin-top: 160px; text-align: left; margin-left: 0px; width: 50%">
+        <div id = "eliminarpreguntasprof">
             <form action = "admin_profesor.php">
-                <button type = "submit" name = "submit" value = "eliminarpreguntasprof">Editar preguntas profesor</button>
+                <button class="botonLink" type = "submit" name = "submit" value = "eliminarpreguntasprof">Editar preguntas profesor</button>
             </form>
         </div> 
-        <div id = "eliminarpreguntaspersonal" style = "text-align: left; margin-left: 0px; width: 50%">
+            
+        <div id = "eliminarpreguntaspersonal" >
             <form action = "admin_personal.php">
-                <button type = "submit" name = "submit" value = "eliminarpreguntasprof">Editar preguntas personales</button>
+                <button class="botonLink" type = "submit" name = "submit" value = "eliminarpreguntasprof">Editar preguntas personales</button>
             </form>
-        </div> 
+        </div>
+            
+        <div  >
+            <form action = "#">
+                <button id = "profesor-asignatura" class="botonLink" type = "submit" name = "submit" value = "profesor-asignatura">Editar profesores y asignaturas</button>
+            </form>
+        </div>
+        
+        </div>    
+
+        
+        
     </body>
 </html>

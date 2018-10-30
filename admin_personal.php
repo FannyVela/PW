@@ -1,5 +1,24 @@
 <?php
    session_start();
+
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        if($_SESSION['username'] == 'admin')
+        {
+            
+        } else
+        {
+            echo "PAGINA DISPONIBLE SOLO PARA EL ADMINISTRADOR.<br>";
+            echo "<br><a href='login.php'>Login</a>";
+            exit;
+        }
+
+    } else {
+        echo "Esta pagina es solo para usuarios registrados.<br>";
+        echo "<br><a href='login.php'>Login</a>";
+        echo "<br><br><a href='registrar-usuario.php'>Registrarme</a>";
+
+        exit;
+        }
 ?>
 
 <html>
@@ -14,9 +33,10 @@
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/supersized.css">
-        <link rel="stylesheet" href="css/main.css">
+       <!-- <link rel="stylesheet" href="css/supersized.css">-->
+
         <link rel="stylesheet" href="css/admin.css">
+        <link rel="stylesheet" href=css/admin-personal.css>
     </head>
     <body>
         <div id ="header">
@@ -34,7 +54,7 @@
             
         </div>
             <?php
-            $conexion = mysqli_connect("localhost", "root", "quevivaperi", "pw")
+            $conexion = mysqli_connect("localhost", "root", "", "pw")
                 or die("Error al conectar con la bd");
             $eliminar_pregunta_personal = $_POST['eliminar_pregunta_personal'];
             $anadir_pregunta_personal = $_POST['anadir_pregunta_personal'];
@@ -67,35 +87,48 @@
                 }
             }
         ?>
-        <div  id = "eliminarpreguntaspersonal" style = "margin-top: 160px; text-align: left; width: 50%; float: left;">
-            <h2>Eliminar preguntas personales</h2>
-            <form style = "text-align: left; margin-left: 10px; width: 100%;" action = "admin_personal.php" method="POST">
+        <div  id = "eliminarpreguntaspersonal">
+            <h1 id="titulo1" >Eliminar preguntas personales</h1><br>
+            <form id="form-PregPersonales" action = "admin_personal.php" method="POST">
                 <?php
+                $var = 1;
                 $consulta = mysqli_query ($conexion, "select * from preguntasest")
                     or die ("Fallo en la consulta");
                 $nfilas = mysqli_num_rows($consulta);
                 for($i=0; $i < $nfilas; $i++)
                 {
                     $resultado = mysqli_fetch_array ($consulta);
-                    echo ("<td><input type='checkbox' name='borrar[]' VALUE='" .
-                    $resultado['idPreguntaEst'] . "'></td>\n");
-                    echo $resultado['pregunta'];
-                    echo "<br>";
+                  /*  echo ("<td><input type='checkbox' name='borrar[]' VALUE='" . $resultado['idPreguntaEst'] . "'></td>\n");
+                    echo '<div id="absolut">'. $resultado['pregunta'] .'</div>'; */
+                    if($var == 1)
+                    {
+                       $nom_class= "PregTipo1";
+                       $var = $var-1;
+                    } else
+                    {
+                        $nom_class = "PregTipo2";
+                        $var = $var+1;
+                    }
+                               
+                    echo "<div class= 'preg " . $nom_class . " ' ". " ><br>&nbsp <input type='checkbox' name='borrar[]' VALUE=' " . $resultado['idPreguntaEst'] . "'>&nbsp &nbsp" . $resultado['pregunta'] . "</div>";
+                            
                 }
-                echo "<br>";
-                echo ("<input type='submit' name='eliminar_pregunta_personal' VALUE='Eliminar preguntas marcadas'>\n");
+                
+                echo '<button id="boton-eliminar" type="submit" name="eliminar_pregunta_personal">Eliminar preguntas marcadas</button>';
+                
                 ?>
             </form>
         </div>
 
-        <div id = "anadir_pregunta_personal" style = "margin-top: 160px; margin-right: 20px;text-align: right; width: 30%; float: right;">
-            <h2>Añadir pregunta profesor</h2>
-            <form style = "text-align: right;  width: 100%;" action = "admin_personal.php" method="POST">
+        <div id = "anadir_pregunta_personal">
+            <h1 id="titulo2">Añadir pregunta profesor</h1>
+            <form id="form-AddResp"style = "text-align: right;  width: 100%;" action = "admin_personal.php" method="POST">
                 <input type = "text" name = "pregunta" placeholder= "Escribe una pregunta">
                 <br>
-                <input type = "text" name = "opciones" placeholder= "Escribe las opciones separadas por , ej: 50%,60%,70%" required="">
+                <input type = "text" name = "opciones" placeholder= "Escribe las opciones separada. Ej: 5%,6%,7%" required="">
                 <br>
-                <input type = "submit" name = "anadir_pregunta_personal" value = "Añadir nueva pregunta">
+                <button id="boton-add" type="submit" name="anadir_pregunta_personal">Añadir nueva pregunta</button>
+           
             </form>
         </div> 
     </body>

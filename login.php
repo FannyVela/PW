@@ -12,10 +12,8 @@
         <!-- CSS -->
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
         <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/supersized.css">
+        <!--<link rel="stylesheet" href="css/supersized.css">-->
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/main.css">
-
 
     </head>
 
@@ -73,8 +71,8 @@
     <body style="display:block;">
 
     <div id ="header">
-        <img src="img/Logo_UCA.png" style="margin-top: 20px; margin-left: 40px; float:left;">
-        <h1 style="float:left; margin-left: 26%; margin-top: 4%; color:#eaf1f7;">ESCUELA SUPERIOR DE INGENIERÍA</h1>
+        <img id="logoUca"src="img/Logo_UCA.png">
+        <h1 id="tituloESI">ESCUELA SUPERIOR DE INGENIERÍA</h1>
     </div>
         
         <div class="page-container">

@@ -1,3 +1,25 @@
+<?php
+   session_start();
+
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        if($_SESSION['username'] == 'admin')
+        {
+            
+        } else
+        {
+            echo "PAGINA DISPONIBLE SOLO PARA EL ADMINISTRADOR.<br>";
+            echo "<br><a href='login.php'>Login</a>";
+            exit;
+        }
+
+    } else {
+        echo "Esta pagina es solo para usuarios registrados.<br>";
+        echo "<br><a href='login.php'>Login</a>";
+        echo "<br><br><a href='registrar-usuario.php'>Registrarme</a>";
+
+        exit;
+        }
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -10,9 +32,10 @@
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/supersized.css">
+      <!--  <link rel="stylesheet" href="css/supersized.css"> -->
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/admin.css">
+        
 	</head>
 
 	<body>
@@ -31,7 +54,7 @@
             </div>
         </div> 
 		<?php
-			$conexion = mysqli_connect("localhost", "root", "quevivaperi", "pw")
+			$conexion = mysqli_connect("localhost", "root", "", "pw")
             	or die("Error al conectar con la bd");
             $eliminar_pregunta_profesor = $_POST['eliminar_pregunta_profesor'];
             $anadir_pregunta_profesor = $_POST['anadir_pregunta_profesor'];
