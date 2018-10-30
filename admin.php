@@ -45,7 +45,7 @@
                 <button id="boton">MENU <img class = "icon" src="img/icono/menu.svg" alt="menu"></button>
                 <div class="links">
                     <a href="admin.php">Editar encuesta</a>
-                    <a href="#">Estadísticas</a>
+                    <a href="estadistica.php">Estadísticas</a>
                     <a href="logout.php">Cerrar sesión</a>
                 </div>
             </div>

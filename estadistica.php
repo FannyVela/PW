@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $conexion = mysqli_connect("localhost", "root", "", "pw")
           or die("Error en la conexion con la bd");
 ?>
@@ -7,6 +8,14 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Estadisticas</title>
+        
+                <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+     <!--   <link rel="stylesheet" href="css/supersized.css">-->
+        <link rel="stylesheet" href="css/admin.css">
+        <link rel="stylesheet" href="css/estadistica.css">
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<style type="text/css">
@@ -275,14 +284,30 @@ $(function () {
 	</head>
 	<body>
 
-<script src="Highcharts-4.1.5/js/highcharts.js"></script>
-<script src="Highcharts-4.1.5/js/highcharts-3d.js"></script>
-<script src="Highcharts-4.1.5/js/modules/exporting.js"></script>
-<div>
-    <div id="container" style="height: 400px"></div>
-    <div id = "container2" style = "height: 400px"></div>
-    <div id = "container3" style = "height: 400px"></div>
-</div>
+        <script src="Highcharts-4.1.5/js/highcharts.js"></script>
+        <script src="Highcharts-4.1.5/js/highcharts-3d.js"></script>
+        <script src="Highcharts-4.1.5/js/modules/exporting.js"></script>
+        
+        <div id ="header">
+            <img id="logoUca"src="img/Logo_UCA.png">
+            <h1 id="tituloESI">ESCUELA SUPERIOR DE INGENIERÍA</h1>
+            <div id="menu">
+                <h2 id="welcome-user">¡Bienvenido <?= $_SESSION['username'] ?>!</h2><br>    
+                <button id="boton">MENU <img class = "icon" src="img/icono/menu.svg" alt="menu"></button>
+                <div class="links">
+                    <a href="admin.php">Editar encuesta</a>
+                    <a href="estadistica.php">Estadísticas</a>
+                    <a href="logout.php">Cerrar sesión</a>
+                </div>
+            </div>   
+        </div>
+        
+        <div id="contenedorGrande">
+            <h1 id="estadistica-titulo">ESTADÍSTICAS</h1>
+            <div id="container" style="height: 400px"></div>
+            <div id = "container2" style = "height: 400px"></div>
+            <div id = "container3" style = "height: 400px"></div>
+        </div>
 </body>
 </html>
 

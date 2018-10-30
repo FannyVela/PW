@@ -125,7 +125,7 @@
             <form id="form-AddResp"style = "text-align: right;  width: 100%;" action = "admin_personal.php" method="POST">
                 <input type = "text" name = "pregunta" placeholder= "Escribe una pregunta">
                 <br>
-                <input type = "text" name = "opciones" placeholder= "Escribe las opciones separada. Ej: 5%,6%,7%" required="">
+                <input type = "text" name = "opciones" placeholder= "Escribe las opciones como en el ej. Ej: 5,6,7" required="">
                 <br>
                 <button id="boton-add" type="submit" name="anadir_pregunta_personal">Añadir nueva pregunta</button>
            
