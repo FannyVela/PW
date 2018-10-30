@@ -6,7 +6,7 @@
 	</head>
 	<body>
 	<?php 
-	$conexion = mysqli_connect("localhost", "root", "quevivaperi", "pw")
+	$conexion = mysqli_connect("localhost", "root", "", "pw")
         or die("Error en la conexion con la bd");
 	
 	mysqli_query($conexion, "insert into encuesta() values();");
@@ -16,24 +16,25 @@
 	$nencuesta = mysqli_num_rows($encuesta); 
 
 	$test = mysqli_query($conexion, "select * from preguntasest");
-	$ntest = mysqli_num_rows($test);
-	for($i = 1; $i <= $ntest; $i++)
-	{
-		mysqli_query($conexion, "insert into respuesta_est(id_encuesta, id_pregunta, respuesta) values ('$nencuesta', '$i', '$_POST[$i]');")
-		or die("Fallo en la insercion de las respuestas del estudiante");
-	}
-
-	$test = mysqli_query($conexion, "select * from preguntas");
-	$npreguntas = mysqli_num_rows($test); 
-
-	for($i = -1; $i >= -$npreguntas; $i--)
-	{
-		$j = $i*-1;
-		mysqli_query($conexion, "insert into respuesta_profesores(id_encuesta, id_pregunta, cod_Asig, cod_Prof, respuesta) values ('$nencuesta', '$j',
-		  '$_POST[cod_asig]', '$_POST[cod_prof]', '$_POST[$i]');")
+        
+    while($ids = mysqli_fetch_array($test))
+    {
+        $j = $ids['idPreguntaEst'];
+        mysqli_query($conexion,"insert into respuesta_est(id_encuesta, id_pregunta, respuesta) values ('$nencuesta', '$j',
+		   '$_POST[$j]');")
 		or die("Fallo en la insercion de las respuestas del profesor");
-	}
-
+    }
+    
+	$test = mysqli_query($conexion, "select * from preguntas");
+   
+    while($ids = mysqli_fetch_array($test))
+    {
+        $j = $ids['idPregunta']*-1;
+        mysqli_query($conexion,"insert into respuesta_profesores(id_encuesta, id_pregunta, cod_Asig, cod_Prof, respuesta) values ('$nencuesta', '$ids[idPregunta]',
+		  '$_POST[cod_asig]', '$_POST[cod_prof]', '$_POST[$j]');")
+		or die("Fallo en la insercion de las respuestas del profesor");
+    }
+        
 	?>
 
 	</body>
