@@ -33,6 +33,7 @@
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
       <!--  <link rel="stylesheet" href="css/supersized.css"> -->
+        <link rel="stylesheet" href="css/admin-profesor.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/admin.css">
         
@@ -41,8 +42,8 @@
 	<body>
 		
 		<div id ="header">
-            <img src="img/Logo_UCA.png" style="margin-top: 20px; margin-left: 40px; float:left;">
-            <h1 style="float:left; margin-left: 23%; margin-top: 4%; color:#eaf1f7;">ESCUELA SUPERIOR DE INGENIERÍA</h1>
+            <img id="logoUca"src="img/Logo_UCA.png">
+            <h1 id="tituloESI">ESCUELA SUPERIOR DE INGENIERÍA</h1>
             <div id="menu">
                 <h2 id="welcome-user">¡Bienvenido <?= $_SESSION['username'] ?>!</h2><br>    
                 <button id="boton">MENU <img class = "icon" src="img/icono/menu.svg" alt="menu"></button>

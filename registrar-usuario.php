@@ -10,7 +10,7 @@
         <!-- CSS -->
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
         <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/supersized.css">
+       <!-- <link rel="stylesheet" href="css/supersized.css"> -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/main.css">
 

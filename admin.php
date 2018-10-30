@@ -65,8 +65,8 @@
             </form>
         </div>
             
-        <div  >
-            <form action = "#">
+        <div>
+            <form action = "admin_pregAsig.php">
                 <button id = "profesor-asignatura" class="botonLink" type = "submit" name = "submit" value = "profesor-asignatura">Editar profesores y asignaturas</button>
             </form>
         </div>
