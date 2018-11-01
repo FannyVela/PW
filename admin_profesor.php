@@ -55,8 +55,10 @@
             </div>
         </div> 
 		<?php
+           
 			$conexion = mysqli_connect("localhost", "root", "", "pw")
             	or die("Error al conectar con la bd");
+            $conexion->set_charset("utf8");
             $eliminar_pregunta_profesor = $_POST['eliminar_pregunta_profesor'];
             $anadir_pregunta_profesor = $_POST['anadir_pregunta_profesor'];
             if(isset($eliminar_pregunta_profesor))
@@ -81,34 +83,50 @@
             		or die("Fallo al insertar");
             }
 		?>
-		<div  id = "eliminarpreguntasprof" style = "margin-top: 160px; text-align: left; width: 50%; float: left;">
-            <h2>Eliminar preguntas profesor</h2>
-            <form style = "text-align: left; margin-left: 10px; width: 100%;" action = "admin_profesor.php" method="POST">
+		<div  id = "eliminar_preguntasprof">
+            <h1 id = "tituloPreg1">Eliminar preguntas profesor</h1><br>
+            <form id = "form-PregProf" action = "admin_profesor.php" method="POST">
                 <?php
                 $consulta = mysqli_query ($conexion, "select * from preguntas")
                     or die ("Fallo en la consulta");
                 $nfilas = mysqli_num_rows($consulta);
+                
+                $var = 1;
+                
                 for($i=0; $i < $nfilas; $i++)
                 {
                     $resultado = mysqli_fetch_array ($consulta);
-                    echo ("<td><input type='checkbox' name='borrar[]' VALUE='" .
-                    $resultado['idPregunta'] . "'></td>\n");
+                    
+                    if($var == 1)
+                    {
+                       $nom_class= "PregTipo1";
+                       $var = $var-1;
+                    } else
+                    {
+                        $nom_class = "PregTipo2";
+                        $var = $var+1;
+                    }
+                    
+                    echo "<div class= 'pregunt " . $nom_class . " ' ". " ><br>&nbsp<div id='checkbox'> <input type='checkbox' name='borrar[]' VALUE=' " . $resultado['idPregunta'] . "'></div>&nbsp &nbsp<div id='question'>" . $resultado['pregunta'] . "</div><br><br></div>";
+                    
+                 /*   echo ("<td><input type='checkbox' name='borrar[]' VALUE='" . $resultado['idPregunta'] . "'></td>\n");
                     echo $resultado['pregunta'];
-                    echo "<br>";
+                    echo "<br>"; */
                 }
                 echo "<br>";
-                echo ("<input type='submit' name='eliminar_pregunta_profesor' VALUE='Eliminar preguntas marcadas'>\n");
+                echo '<button id="boton-eliminar" type="submit" name="eliminar_pregunta_profesor">Eliminar preguntas marcadas</button>';
+            
                 ?>
             </form>
         </div>
 
-        <div id = "anadir_pregunta_profesor" style = "margin-top: 160px; margin-right: 20px;text-align: right; width: 30%; float: right;">
-        	<h2>Añadir pregunta profesor</h2>
-        	<form style = "text-align: right;  width: 100%;" action = "admin_profesor.php" method="POST">
-        		<input type = "text" name = "pregunta" value = "Escribe una pregunta">
+        <div id = "anadir_pregunta_profesor" >
+        	<h1 id = "tituloPreg2">Añadir pregunta profesor</h1>
+        	<form id="formadd-PregProf" action = "admin_profesor.php" method="POST">
+        		<input type = "text" name = "pregunta" placeholder = "Escribe una pregunta">
         		<br>
         		<br>
-        		<input type = "submit" name = "anadir_pregunta_profesor" value = "Añadir nueva pregunta">
+                <button id="boton-add" type="submit" name="anadir_pregunta_personal">Añadir nueva pregunta</button>
         	</form>
         </div> 
 	</body>

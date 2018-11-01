@@ -1,0 +1,73 @@
+#tituloPreg1{
+    font-size:24px;
+}
+
+#tituloPreg2{
+    font-size: 24px;
+    margin-left: 200px;
+}
+
+#eliminar_preguntasprof{
+    margin-top: 160px;
+    margin-left: 70px;
+    width: 50%; 
+    float: left;
+}
+
+#anadir_pregunta_profesor{
+    margin-top: 160px; 
+    width: 35%;
+    float: left;
+}
+
+#form-PregProf{
+    text-align: left;
+    width: 100%;
+}
+
+#formadd-PregProf{
+    margin-left: 105px;
+    width: 100%;
+}
+
+#boton-eliminar{
+    margin-left: 180px;
+}
+
+#boton-add{
+    width: 270px;
+}
+
+input[type=text]{
+    height: 200px;
+}
+
+.pregunt{
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 90px;
+}
+
+.PregTipo1{
+    background-color: #d3d0cf;
+}
+
+.PregTipo2{
+    background-color: #efece8;
+}
+
+input[type=checkbox]
+{
+    margin-left: 0;
+    
+}
+
+#checkbox{
+    width: 2%;
+    float:left;
+}
+
+#question{
+    width: 90%;
+    float:right;
+}

@@ -61,7 +61,7 @@
             
         <div id = "eliminarpreguntaspersonal" >
             <form action = "admin_personal.php">
-                <button class="botonLink" type = "submit" name = "submit" value = "eliminarpreguntasprof">Editar preguntas personales</button>
+                <button class="botonLink" type = "submit" name = "submit" value = "eliminarpreguntaspersonal">Editar preguntas personales</button>
             </form>
         </div>
             

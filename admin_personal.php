@@ -54,8 +54,10 @@
             
         </div>
             <?php
+    
             $conexion = mysqli_connect("localhost", "root", "", "pw")
                 or die("Error al conectar con la bd");
+            $conexion->set_charset("utf8");
             $eliminar_pregunta_personal = $_POST['eliminar_pregunta_personal'];
             $anadir_pregunta_personal = $_POST['anadir_pregunta_personal'];
             if(isset($eliminar_pregunta_personal))
@@ -98,8 +100,7 @@
                 for($i=0; $i < $nfilas; $i++)
                 {
                     $resultado = mysqli_fetch_array ($consulta);
-                  /*  echo ("<td><input type='checkbox' name='borrar[]' VALUE='" . $resultado['idPreguntaEst'] . "'></td>\n");
-                    echo '<div id="absolut">'. $resultado['pregunta'] .'</div>'; */
+
                     if($var == 1)
                     {
                        $nom_class= "PregTipo1";
@@ -121,8 +122,8 @@
         </div>
 
         <div id = "anadir_pregunta_personal">
-            <h1 id="titulo2">Añadir pregunta profesor</h1>
-            <form id="form-AddResp"style = "text-align: right;  width: 100%;" action = "admin_personal.php" method="POST">
+            <h1 id="titulo2">Añadir pregunta personal</h1>
+            <form id="form-AddResp"  action = "admin_personal.php" method="POST">
                 <input type = "text" name = "pregunta" placeholder= "Escribe una pregunta">
                 <br>
                 <input type = "text" name = "opciones" placeholder= "Escribe las opciones como en el ej. Ej: 5,6,7" required="">

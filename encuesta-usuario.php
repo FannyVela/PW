@@ -1,48 +1,54 @@
 <?php
-    session_start();
+   session_start();
 ?>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Encuesta</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <head>
+        <meta charset="utf-8">
+        <title>Administración</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/encuesta-usuario.css">
-  </head>
-    
-  <body>
-    <div id ="header">
-        <img src="img/Logo_UCA.png" style="margin-top: 20px; margin-left: 40px; float:left;">
-        <h1 style="float:left; margin-left: 20%; margin-top: 4%; color:#eaf1f7;">ESCUELA SUPERIOR DE INGENIERÍA</h1>
-            <div id="bienvenida">
-                <h2 id="welcome-user">¡Bienvenido <?= $_SESSION['username'] ?>!</h2>
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+     <!--   <link rel="stylesheet" href="css/supersized.css">-->
+        <link rel="stylesheet" href="css/admin.css">
+        <link rel="stylesheet" href="css/encuesta-usuario.css">
+    </head>
+    <body>
+        <div id ="header">
+            <img id="logoUca"src="img/Logo_UCA.png">
+            <h1 id="tituloESI">ESCUELA SUPERIOR DE INGENIERÍA</h1>
+            <div id="menu">
+                <h2 id="welcome-user">¡Bienvenido <?= $_SESSION['username'] ?>!</h2><br>    
                 <a id="cerrar-sesion" href="logout.php">Cerrar sesión</a>
             </div>
             
-    </div> 
-    <center>
-      <h1 style="margin-top:250px;">Encuesta de satisfaccion</h1>
+        </div>
+        
+      <center>
+          <h1 style="margin-top:250px;">Encuesta de satisfaccion</h1><br>
 
-      <form style="margin:0;" action = "recibir.php" method="POST">
-        Codigo de la asignatura:
-        <br>
-        <input type = "text" name = "cod_asig" value = "">
-        <br><br>
-        Codigo del profesor:
-        <br>
-        <input type = "text" name = "cod_prof" value = "">
-        <br>
+          <form style="margin:0;" action = "recibir.php" method="POST">
+            Codigo de la asignatura:
+            <br>
+            <input type = "text" name = "cod_asig" value = "">
+            <br><br>
+            Codigo del profesor:
+            <br>
+            <input type = "text" name = "cod_prof" value = "">
+            <br><br><br>
       </center>
+          
       <div>
       <?php
-           header ('Content-type: text/html; charset=utf-8');
+           
           $conexion = mysqli_connect("localhost", "root", "", "pw")
           or die("Error en la conexion con la bd");
+          $conexion->set_charset("utf8");
           $preguntas_est = mysqli_query($conexion, "select * from preguntasest")
           or die("Error al cargar las preguntas");
           $opciones = mysqli_query($conexion, "select * from opciones")
@@ -53,7 +59,7 @@
                     
          $cont = 1;
 
-          echo "<h2>Preguntas de caracter personal: </h2>";
+          echo "<h1>Preguntas de caracter personal: </h1><br>";
           while($i = mysqli_fetch_array($preguntas_est))
           {
             echo "<br>";
@@ -84,14 +90,14 @@
               }
               
             }
-            echo "<br>";
+            echo "<br><br>";
             $cont = $cont+1;
           }
        ?>
        </div>
 
        <div>
-        <h1>Preguntas del Profesor</h1>
+        <h1>Preguntas del Profesor</h1><br>
           <?php
           $preguntas = mysqli_query($conexion, "select * from preguntas")
           or die("Error al cargar las preguntas");
@@ -116,12 +122,11 @@
     
       <br>
       <center>
-        <input type = "submit" name = "enviar" value = "enviar">
+          
+        <button type = "submit" name = "enviar" value = "enviar">Enviar</button>
         </form>
         </center>
        </div>
-  
-     
-        </body>
+        
+    </body>
 </html>
-
