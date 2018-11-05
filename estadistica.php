@@ -310,13 +310,15 @@ $(function () {
             <div id = "container3" style = "height: 400px"></div>
             <div style = "width: 100%; margin-top: 35%;">
                 <form action = "estadistica.php" method="POST">
-                    <input type = "text" name = "profesor">Introduce el id del profesor
-                    <input type="submit" name="enviar">
+                    <label for="input">Introduzca el Id del profesor</label>
+                    <input id="input"type = "text" name = "profesor" placeholder="Id profesor">
+                    <button type= "submit" name="enviar" style="margin-bottom:30px;">Enviar</button>
+                 <!--   <input type="submit" name="enviar"> -->
                 </form>
                 <br>
                 <?php
-                    $profesor = $_POST['enviar'];
-                    if(isset($profesor))
+                   // $profesor = $_POST['enviar'];
+                    if(isset( $_POST['enviar']))
                     {
                         $id = $_POST['profesor'];
                         $conexion = mysqli_connect("localhost", "root", "", "pw");

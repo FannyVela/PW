@@ -108,10 +108,7 @@
                     }
                     
                     echo "<div class= 'pregunt " . $nom_class . " ' ". " ><br>&nbsp<div id='checkbox'> <input type='checkbox' name='borrar[]' VALUE=' " . $resultado['idPregunta'] . "'></div>&nbsp &nbsp<div id='question'>" . $resultado['pregunta'] . "</div><br><br></div>";
-                    
-                 /*   echo ("<td><input type='checkbox' name='borrar[]' VALUE='" . $resultado['idPregunta'] . "'></td>\n");
-                    echo $resultado['pregunta'];
-                    echo "<br>"; */
+
                 }
                 echo "<br>";
                 echo '<button id="boton-eliminar" type="submit" name="eliminar_pregunta_profesor">Eliminar preguntas marcadas</button>';

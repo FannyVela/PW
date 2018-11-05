@@ -104,8 +104,8 @@
         ?>
 
         <div id="eliminarProfesor">
-            <h1 >Eliminar profesor</h1><br>
-            <form action = "admin_pregAsig.php" method="POST">  
+            <h1 style="margin-left:100px;">Eliminar profesor</h1><br>
+            <form id="form-eliminarProfesor" action = "admin_pregAsig.php" method="POST">  
                 <?php
                 $var = 1;
                 $consulta = mysqli_query ($conexion, "select * from profesor")
@@ -137,7 +137,7 @@
 
         <div id="addProfesor">
             <h1>Añadir profesor</h1>
-            <form id="form-AddResp"  action = "admin_pregAsig.php" method="POST">
+            <form id="form-AddProf"  action = "admin_pregAsig.php" method="POST">
                 <input type = "text" name = "id" placeholder= "Escribe el id del profesor">
                 <br>
                 <input type = "text" name = "nombre" placeholder= "Escribe el nombre del profesor" required="">
@@ -148,8 +148,8 @@
         </div>
 
         <div id="eliminarAsignatura">
-            <h1 >Eliminar asignatura</h1><br>
-            <form action = "admin_pregAsig.php" method="POST">  
+            <h1 style="margin-left:100px; margin-top:30px;">Eliminar asignatura</h1><br>
+            <form id="form-elimAsig" action = "admin_pregAsig.php" method="POST">  
                 <?php
                 $var = 1;
                 $consulta = mysqli_query ($conexion, "select * from asignatura")
@@ -169,7 +169,7 @@
                         $var = $var+1;
                     }
                                
-                    echo "<div class= 'preg " . $nom_class . " ' ". " ><br>&nbsp <input type='checkbox' name='borrar[]' VALUE=' " . $resultado['id'] . "'>&nbsp &nbsp" . $resultado['nombre'] . "</div>";
+                    echo "<div class= 'preg  " . $nom_class . " ' ". "style='height:60px;' ><br>&nbsp <input type='checkbox' name='borrar[]' VALUE=' " . $resultado['id'] . "'>&nbsp &nbsp" . $resultado['nombre'] . "</div>";
                             
                 }
                 
@@ -179,16 +179,16 @@
             </form>
         </div>
 
-        <div id="addProfesor">
-            <h1>Añadir asignatura</h1>
-            <form id="form-AddResp"  action = "admin_pregAsig.php" method="POST">
+        <div id="addAsignatura">
+            <h1 style="margin-top: 30px;">Añadir asignatura</h1>
+            <form id="form-AddAsig"  action = "admin_pregAsig.php" method="POST">
                 <input type = "text" name = "id" placeholder= "Escribe el id de la asignatura">
                 <br>
                 <input type = "text" name = "nombre" placeholder= "Escribe el nombre de la asignatura" required="">
                 <br>
                 <input type = "text" name = "idprof" placeholder="Escribe el id del profesor que imparte la asignatura">
                 <br>
-                <button id="boton-add" type="submit" name="anadir_asignatura">Añadir nueva asignatura</button>
+                <button id="boton-add" style="margin-top:45px;" type="submit" name="anadir_asignatura">Añadir nueva asignatura</button>
            
             </form>
         </div>
