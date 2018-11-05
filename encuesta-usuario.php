@@ -43,7 +43,7 @@
             <br><br><br>
       </center>
           
-      <div>
+      <div style = "text-align: left; margin-left: 5%;">
       <?php
            
           $conexion = mysqli_connect("localhost", "root", "", "pw")
@@ -96,7 +96,7 @@
        ?>
        </div>
 
-       <div>
+       <div style = "text-align: left; margin-left: 5%;">
         <h1>Preguntas del Profesor</h1><br>
           <?php
           $preguntas = mysqli_query($conexion, "select * from preguntas")
