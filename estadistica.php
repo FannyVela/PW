@@ -306,7 +306,77 @@ $(function () {
             <h1 id="estadistica-titulo">ESTADÍSTICAS</h1>
             <div id="container" style="height: 400px"></div>
             <div id = "container2" style = "height: 400px"></div>
+            <br>
             <div id = "container3" style = "height: 400px"></div>
+            <div style = "width: 100%; margin-top: 35%;">
+                <form action = "estadistica.php" method="POST">
+                    <input type = "text" name = "profesor">Introduce el id del profesor
+                    <input type="submit" name="enviar">
+                </form>
+                <br>
+                <?php
+                    $profesor = $_POST['enviar'];
+                    if(isset($profesor))
+                    {
+                        $id = $_POST['profesor'];
+                        $conexion = mysqli_connect("localhost", "root", "", "pw");
+                        $resultado1 = mysqli_query($conexion, "select count(respuesta) from respuesta_profesores where cod_Prof = 
+                            $id and respuesta like 'NS'")
+                            or die("Error en la consulta");
+                        $resultado2 = mysqli_query($conexion, "select count(respuesta) from respuesta_profesores where cod_Prof = 
+                            $id and respuesta like '1'")
+                            or die("Error en la consulta");
+                        $resultado3 = mysqli_query($conexion, "select count(respuesta) from respuesta_profesores where cod_Prof = 
+                            $id and respuesta like '2'")
+                            or die("Error en la consulta");
+                        $resultado4 = mysqli_query($conexion, "select count(respuesta) from respuesta_profesores where cod_Prof = 
+                            $id and respuesta like '3'")
+                            or die("Error en la consulta");
+                        $resultado5 = mysqli_query($conexion, "select count(respuesta) from respuesta_profesores where cod_Prof = 
+                            $id and respuesta like '4'")
+                            or die("Error en la consulta");
+                        $resultado6 = mysqli_query($conexion, "select count(respuesta) from respuesta_profesores where cod_Prof = 
+                            $id and respuesta like '5'")
+                            or die("Error en la consulta");
+
+                        $resultado1 = mysqli_fetch_array($resultado1);
+                        $resultado2 = mysqli_fetch_array($resultado2);
+                        $resultado3 = mysqli_fetch_array($resultado3);
+                        $resultado4 = mysqli_fetch_array($resultado4);
+                        $resultado5 = mysqli_fetch_array($resultado5);
+                        $resultado6 = mysqli_fetch_array($resultado6);
+
+                        include("GoogChart.class.php");
+                        $chart = new GoogChart();
+                        $color = array ( '#b65745', '#7498e9', '#999999',);
+
+                        $nombre = mysqli_query($conexion, "select nombre from profesor where $id = id")
+                            or die("Fallo nombre");
+
+                        $nombre = mysqli_fetch_array($nombre);
+
+                        //echo $nombre[0];
+
+                        $dataMultiple = array(
+                        "$nombre[0]" => array(
+                        NS => $resultado1[0],
+                        1 => $resultado2[0],
+                        2 => $resultado3[0],
+                        3 => $resultado4[0],
+                        4 => $resultado5[0],
+                        5 => $resultado6[0],
+                        ), );
+                        $chart->setChartAttrs( array(
+                        'type' => 'bar-vertical',
+                        'title' => 'Puntuacion: '.$fecha,
+                        'data' => $dataMultiple,
+                        'size' => array( 400, 300 ),
+                        'color' => $color,
+                        'labelsXY' => true,
+));
+                        echo $chart;
+                    }
+                    ?>
         </div>
 </body>
 </html>
