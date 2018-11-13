@@ -30,5 +30,10 @@
  		}
  }
 
+ 		public function eliminar_sesion()
+ 		{
+ 			$this->session->sess_destroy();
+ 		}
+
     }
 ?>

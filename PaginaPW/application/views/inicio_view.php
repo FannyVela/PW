@@ -28,7 +28,8 @@
                                 echo "Actualmente logeado con: ". $_SESSION['username'];
                                 ?>
                                 </div>
-                                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>+38 068 005 3570</div>
+                                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>
+                                </div>
                                 <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                                 <div class="top_bar_content ml-auto">
                                     <div class="top_bar_user">
