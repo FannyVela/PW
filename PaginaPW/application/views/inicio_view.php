@@ -23,12 +23,17 @@
                     <div class="container">
                         <div class="row">
                             <div class="col d-flex flex-row">
+                                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>
+                                <?php
+                                echo "Actualmente logeado con: ". $_SESSION['username'];
+                                ?>
+                                </div>
                                 <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>+38 068 005 3570</div>
                                 <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                                 <div class="top_bar_content ml-auto">
                                     <div class="top_bar_user">
                                         <div class="user_icon"><img src="images/user.svg" alt=""></div>
-                                        <div><a href="#">Register</a></div>
+                                        <div><a href="<?= base_url().'index.php/registro'?>">Register</a></div>
                                         <div><a href="#">Sign in</a></div>
                                     </div>
                                 </div>

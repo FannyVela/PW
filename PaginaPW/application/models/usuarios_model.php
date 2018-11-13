@@ -38,4 +38,16 @@
  	'password'=>$this->input->post('pass',TRUE),	
  	));
  }
+
+ 	public function verify_sesion(){
+ 		$consulta = $this->db->get_where('usuarios',array(
+ 		'username'=>$this->input->post('user',TRUE),
+ 		'password'=>$this->input->post('pass',TRUE)
+ 		));
+ 		if($consulta->num_rows() ==1){
+ 		return true;
+ 		}else{
+ 		return false;
+ 		}
+ }
 }
