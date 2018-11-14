@@ -26,9 +26,15 @@
                         <div class="row">
                             <div class="col d-flex flex-row">
                                 <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/phone.png') ?>" alt=""></div>+38 068 005 3570
-                             <!--   <?php 
-                                    echo "Actualmente logeado con: ". $_SESSION['username']; 
-                                ?> -->
+                               <?php 
+                                   if(isset($_SESSION['username']))
+                                    {
+                                        echo "Actualmente logeado con: ". $_SESSION['username'];
+                                    }
+                                else{
+                                        echo "<div class='top_bar_contact_item'><div class='top_bar_icon'></div></div>";
+                                    }
+                                ?> 
                                 </div>
                     
                                 <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/mail.png') ?>" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
@@ -36,7 +42,7 @@
                                     <div class="top_bar_user">
                                         <div class="user_icon"><img src="<?php echo base_url('images/user.svg') ?>" alt=""></div>
                                         <div><a href="<?= base_url().'registro'?>">Register</a></div>
-                                        <div><a href="#">Sign in</a></div>
+                                        <div><a href="<?= base_url().'index.php/login'?>">Sign in</a></div>
                                     </div>
                                 </div>
                             </div>

@@ -28,7 +28,7 @@
                                     <div class="top_bar_user">
                                         <div class="user_icon"><img src="images/user.svg" alt=""></div>
                                         <div><a href="<?= base_url().'index.php/registro'?>">Register</a></div>
-                                        <div><a href="#">Sign in</a></div>
+                                        <div><a href="<?= base_url().'index.php/login'?>">Sign in</a></div>
                                     </div>
                                 </div>
                             </div>
