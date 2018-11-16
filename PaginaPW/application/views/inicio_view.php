@@ -157,7 +157,7 @@
           				<div class="col-lg-5 fill_height">
           					<div class="banner_content">
           						<h1 class="banner_text">Los mejores precios en teléfonos móviles</h1>
-          						<div class="banner_price"><span style="width:100px;">800 €</span></div>
+          						<div class="banner_price"><span style="width:100px;">5 €</span></div>
           						<div class="banner_product_name">Samsung Galaxy Note 9</div>
           						<div class="button banner_button" style="margin-left:408px; width: 35%; text-align:center;"><a href="#">Lo quiero</a></div>
           					</div>
