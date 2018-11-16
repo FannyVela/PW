@@ -5,19 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Mobile shop project">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-               
+
+
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/OwlCarousel2-2.2.1/owl.carousel.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/OwlCarousel2-2.2.1/owl.theme.default.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/OwlCarousel2-2.2.1/animate.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/slick-1.8.0/slick.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/main.css'); ?>"> 
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesome-all.css'); ?>">
-        
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesomeAll.css'); ?>">
+
     </head>
-    
+
     <body>
         <div class="super_container">
             <header class="header">
@@ -25,8 +25,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col d-flex flex-row">
-                                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/phone.png') ?>" alt=""></div>+38 068 005 3570
-                               <?php 
+                                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/phone.png') ?>" alt=""></div>+34 603456765
+                                </div>
+                          <!--     <?php
                                    if(isset($_SESSION['username']))
                                     {
                                         echo "Actualmente logeado con: ". $_SESSION['username'];
@@ -34,23 +35,36 @@
                                 else{
                                         echo "<div class='top_bar_contact_item'><div class='top_bar_icon'></div></div>";
                                     }
-                                ?> 
-                                </div>
-                    
-                                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/mail.png') ?>" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                                ?> -->
+
+
+                                <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/mail.png') ?>" alt=""></div><a href="mailto:tecnophone@info.com">tecnophone@info.com</a></div>
                                 <div class="top_bar_content ml-auto">
                                     <div class="top_bar_user">
-                                        <div class="user_icon"><img src="<?php echo base_url('images/user.svg') ?>" alt=""></div>
-                                        <div><a href="<?= base_url().'registro'?>">Register</a></div>
-                                        <div><a href="<?= base_url().'index.php/login'?>">Sign in</a></div>
+                                        <?php
+                                          if(isset($_SESSION['username']))
+                                          {
+                                             echo "<div class=welcome_item>Hola ". $_SESSION['username'] . " </div>";
+                                          } else{ ?>
+                                              <div class="user_icon"><img src="<?php echo base_url('images/user.svg') ?>" alt=""></div>
+                                              <div><a href="<?= base_url().'registro'?>">Regístrate</a></div>
+                                              <div><a href="<?= base_url().'index.php/login'?>">Iniciar sesión</a></div>
+                                      <?php } ?>
                                     </div>
+
+                                    <?php
+                                      if(isset($_SESSION['username']))
+                                      {
+                                          echo "<div class = 'closeSesion'><a href = '". base_url() . "login/logout'>Cerrar sesión</a></div> ";
+                                      }
+                                     ?>
                                 </div>
                             </div>
                         </div>
-                    </div>		
+                    </div>
                 </div>
             </header>
-            
+
             <!-- Header Main -->
             <div class="header_main">
                 <div class="container">
@@ -74,7 +88,7 @@
                                             <div class="cart_count"><span>0</span></div>
                                         </div>
                                         <div class="cart_content">
-                                            <div class="cart_text"><a href="#">Cart</a></div>
+                                            <div class="cart_text"><a href="#">Cesta</a></div>
                                       <!--      <div class="cart_price">0€</div>-->
                                         </div>
                                     </div>
@@ -84,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Main Navigation -->
 
             <nav class="main_nav">
@@ -93,14 +107,14 @@
                         <div class="col">
 
                             <div class="main_nav_content d-flex flex-row">
-                                
+
                                 <!-- Main Nav Menu -->
 
-                                <div class="main_nav_menu" style="margin-left: 40%;">
+                                <div class="main_nav_menu" style="margin-left: 35%;">
                                     <ul class="standard_dropdown main_nav_dropdown">
                                         <li><a href="<?= base_url().'inicio'?>">Inicio<i class="fas fa-chevron-down"></i></a></li>
                                         <li class="hassubs">
-                                            <a href="#">Marcas<i class="fas fa-chevron-down"></i></a>
+                                            <a href="#">Marcas de móviles<i class="fas fa-chevron-down"></i></a>
                                             <ul>
                                                 <li>
                                                     <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
@@ -132,8 +146,56 @@
                     </div>
                 </div>
             </nav>
-            
-            
-        </div> 
+
+            <!-- Banner -->
+
+            <div class="banner">
+          		<div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
+          		<div class="container fill_height">
+          			<div class="row fill_height">
+          				<div class="banner_product_image"><img src="images/hola.png" alt=""></div>
+          				<div class="col-lg-5 fill_height">
+          					<div class="banner_content">
+          						<h1 class="banner_text">Los mejores precios en teléfonos móviles</h1>
+          						<div class="banner_price"><span style="width:100px;">800 €</span></div>
+          						<div class="banner_product_name">Samsung Galaxy Note 9</div>
+          						<div class="button banner_button" style="margin-left:408px; width: 35%; text-align:center;"><a href="#">Lo quiero</a></div>
+          					</div>
+          				</div>
+          			</div>
+          		</div>
+          	</div>
+
+            <!-- Footer -->
+
+          	<footer class="footer">
+          		<div class="container">
+          			<div class="row" >
+          				<div class="col-lg-3 footer_col" style="margin-left: 40%;">
+          					<div class="footer_column footer_contact">
+          						<div >
+          							<div class="logo2"><a href="#">TecnoPhone</a></div>
+          						</div>
+          						<div class="footer_title">Got Question? Call Us 24/7</div>
+          						<div class="footer_phone">+38 068 005 3570</div>
+          						<div class="footer_contact_text">
+          							<p>17 Princess Road, London</p>
+          							<p>Grester London NW18JR, UK</p>
+          						</div>
+          						<div class="footer_social">
+          							<ul>
+          								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+          								<li><a href="#"><i class="fab fa-google"></i></a></li>
+          								<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+          							</ul>
+          						</div>
+          					</div>
+          				</div>
+          			</div>
+          		</div>
+          	</footer>
+        </div>
     </body>
 </html>
