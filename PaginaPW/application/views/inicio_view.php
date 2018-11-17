@@ -8,6 +8,9 @@
 
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/OwlCarousel2-2.2.1/owl.carousel.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/OwlCarousel2-2.2.1/owl.theme.default.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/OwlCarousel2-2.2.1/animate.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/slick-1.8.0/slick.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
@@ -24,6 +27,16 @@
                             <div class="col d-flex flex-row">
                                 <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/phone.png') ?>" alt=""></div>+34 603456765
                                 </div>
+                          <!--     <?php
+                                   if(isset($_SESSION['username']))
+                                    {
+                                        echo "Actualmente logeado con: ". $_SESSION['username'];
+                                    }
+                                else{
+                                        echo "<div class='top_bar_contact_item'><div class='top_bar_icon'></div></div>";
+                                    }
+                                ?> -->
+
 
                                 <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/mail.png') ?>" alt=""></div><a href="mailto:tecnophone@info.com">tecnophone@info.com</a></div>
                                 <div class="top_bar_content ml-auto">
@@ -75,7 +88,7 @@
                                             <div class="cart_count"><span>0</span></div>
                                         </div>
                                         <div class="cart_content">
-                                            <div class="cart_text"><a href="<?php echo base_url('carro') ?>">Cesta</a></div>
+                                            <div class="cart_text"><a href="#">Cesta</a></div>
                                       <!--      <div class="cart_price">0€</div>-->
                                         </div>
                                     </div>
@@ -140,7 +153,7 @@
           		<div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
           		<div class="container fill_height">
           			<div class="row fill_height">
-          				<div class="banner_product_image"><img src="images/hola.png" alt=""></div>
+          				<div class="banner_product_image"><img src="<?php echo base_url('images/hola.png') ?>" alt=""></div>
           				<div class="col-lg-5 fill_height">
           					<div class="banner_content">
           						<h1 class="banner_text">Los mejores precios en teléfonos móviles</h1>
@@ -152,6 +165,58 @@
           			</div>
           		</div>
           	</div>
+
+            <div class = "row">
+            <?php
+                //sacamos todos los productos del array productos
+                foreach ($productos as $producto) {
+                    ?>
+                    <div class = "col-lg-4 col-sm-6 portfolio-item">
+                      <div class = "card h-100">
+                        <?php
+                        //si existen opciones en el producto las separamos con explode
+                        //cada vez que haya una coma, sino no hacemos nada
+                        //para cada producto creamos un formulario que apuntará a la función
+                        //agregarProducto del controlador catalogo para insertarlo en la cesta
+                        ?>
+                        <div class = "card-body">
+                        <?= form_open(base_url() . 'catalogo/agregarProducto') ?>
+                        <div id="imagen">
+                        <?
+                            $url = base_url(). "/images/". $producto->nombreimagen . ".png";
+                        ?>
+                            <img src="<?php echo $url ?>" width="300" height="300" />
+                        </div>
+                      
+                          <h4 class = "card-tittle"><?= ucfirst($producto->descripcion) ?></h4>
+                        
+                        <!--mostramos las imagenes de los productos-->
+                        <!--
+                        <div id="imagen">
+                            <img src="http://localhost/carritoCI/imagenes/<?= $producto->imagen ?>" width="120" height="110" />
+                        </div> -->
+                        <div id="precio">
+                            <?= $producto->precio ?>
+                        </div>
+                        <div id = "marca">
+                          <?= $producto->marca ?>
+                        </div>
+                        
+                        <?= form_hidden('uri', $this->uri->segment(3)) ?>
+                        <!--<?= form_hidden('id', $producto->id) ?>  -->
+                        <?= form_submit('action', 'Agregar al carrito') ?>
+                        <?= form_close() ?>
+                        </div>
+                        </div>
+                        </div>
+                        <?php
+
+                    }
+                    ?>
+              </div>
+              <div class="grid_7">
+                <?= $this->pagination->create_links() ?>
+              </div>
 
             <!-- Footer -->
 
