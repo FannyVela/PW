@@ -8,9 +8,6 @@
 
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/OwlCarousel2-2.2.1/owl.carousel.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/OwlCarousel2-2.2.1/owl.theme.default.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/OwlCarousel2-2.2.1/animate.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/slick-1.8.0/slick.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
@@ -27,16 +24,6 @@
                             <div class="col d-flex flex-row">
                                 <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/phone.png') ?>" alt=""></div>+34 603456765
                                 </div>
-                          <!--     <?php
-                                   if(isset($_SESSION['username']))
-                                    {
-                                        echo "Actualmente logeado con: ". $_SESSION['username'];
-                                    }
-                                else{
-                                        echo "<div class='top_bar_contact_item'><div class='top_bar_icon'></div></div>";
-                                    }
-                                ?> -->
-
 
                                 <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/mail.png') ?>" alt=""></div><a href="mailto:tecnophone@info.com">tecnophone@info.com</a></div>
                                 <div class="top_bar_content ml-auto">
@@ -88,7 +75,7 @@
                                             <div class="cart_count"><span>0</span></div>
                                         </div>
                                         <div class="cart_content">
-                                            <div class="cart_text"><a href="#">Cesta</a></div>
+                                            <div class="cart_text"><a href="<?php echo base_url('carro') ?>">Cesta</a></div>
                                       <!--      <div class="cart_price">0€</div>-->
                                         </div>
                                     </div>
