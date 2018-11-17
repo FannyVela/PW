@@ -1,4 +1,4 @@
-<?
+<?php
 class Catalogo_model extends CI_Model{
 
 	public function _construct(){
@@ -21,7 +21,7 @@ class Catalogo_model extends CI_Model{
             return $data;
         }
     }
-	
+
 }
 
 

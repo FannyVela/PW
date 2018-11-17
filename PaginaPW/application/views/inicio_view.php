@@ -169,14 +169,14 @@
                         <div class = "card-body">
                         <?= form_open(base_url() . 'catalogo/agregarProducto') ?>
                         <div id="imagen">
-                        <?
+                        <?php
                             $url = base_url(). "/images/". $producto->nombreimagen . ".png";
                         ?>
                             <img src="<?php echo $url ?>" width="300" height="300" />
                         </div>
-                      
+
                           <h4 class = "card-tittle"><?= ucfirst($producto->descripcion) ?></h4>
-                        
+
                         <!--mostramos las imagenes de los productos-->
                         <!--
                         <div id="imagen">
@@ -188,7 +188,7 @@
                         <div id = "marca">
                           <?= $producto->marca ?>
                         </div>
-                        
+
                         <?= form_hidden('uri', $this->uri->segment(3)) ?>
                         <!--<?= form_hidden('id', $producto->id) ?>  -->
                         <?= form_submit('action', 'Agregar al carrito') ?>
