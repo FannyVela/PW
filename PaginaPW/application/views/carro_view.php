@@ -12,6 +12,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesomeAll.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/cart_responsive.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/cartStyles.css'); ?>">
 
     </head>
 
@@ -134,19 +136,56 @@
                 </div>
             </nav>
 
-            <!-- Banner -->
+            <!-- Cart -->
 
-            <div class="banner">
-          		<div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
-          		<div class="container fill_height">
-          			<div class="row fill_height">
-          				<div class="banner_product_image"><img src="images/hola.png" alt=""></div>
-          				<div class="col-lg-5 fill_height">
-          					<div class="banner_content">
-          						<h1 class="banner_text">Los mejores precios en teléfonos móviles</h1>
-          						<div class="banner_price"><span style="width:100px;">5 €</span></div>
-          						<div class="banner_product_name">Samsung Galaxy Note 9</div>
-          						<div class="button banner_button" style="margin-left:408px; width: 35%; text-align:center;"><a href="#">Lo quiero</a></div>
+          	<div class="cart_section">
+          		<div class="container">
+          			<div class="row">
+          				<div class="col-lg-10 offset-lg-1">
+          					<div class="cart_container">
+          						<div class="cart_title">Shopping Cart</div>
+          						<div class="cart_items">
+          							<ul class="cart_list">
+          								<li class="cart_item clearfix">
+          									<div class="cart_item_image"><img src="images/shopping_cart.jpg" alt=""></div>
+          									<div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
+          										<div class="cart_item_name cart_info_col">
+          											<div class="cart_item_title">Name</div>
+          											<div class="cart_item_text">MacBook Air 13</div>
+          										</div>
+          										<div class="cart_item_color cart_info_col">
+          											<div class="cart_item_title">Color</div>
+          											<div class="cart_item_text"><span style="background-color:#999999;"></span>Silver</div>
+          										</div>
+          										<div class="cart_item_quantity cart_info_col">
+          											<div class="cart_item_title">Quantity</div>
+          											<div class="cart_item_text">1</div>
+          										</div>
+          										<div class="cart_item_price cart_info_col">
+          											<div class="cart_item_title">Price</div>
+          											<div class="cart_item_text">$2000</div>
+          										</div>
+          										<div class="cart_item_total cart_info_col">
+          											<div class="cart_item_title">Total</div>
+          											<div class="cart_item_text">$2000</div>
+          										</div>
+          									</div>
+          								</li>
+          							</ul>
+          						</div>
+
+          						<!-- Order Total -->
+          						<div class="order_total">
+          							<div class="order_total_content text-md-right">
+          								<div class="order_total_title">Order Total:</div>
+          								<div class="order_total_amount">$2000</div>
+          							</div>
+          						</div>
+
+          						<div class="cart_buttons">
+          							<button type="button" class="button cart_button_clear">Add to Cart</button>
+          							<button type="button" class="button cart_button_checkout">Add to Cart</button>
+          						</div>
           					</div>
           				</div>
           			</div>
