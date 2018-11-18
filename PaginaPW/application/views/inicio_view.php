@@ -164,10 +164,10 @@
                         //si existen opciones en el producto las separamos con explode
                         //cada vez que haya una coma, sino no hacemos nada
                         //para cada producto creamos un formulario que apuntará a la función
-                        //agregarProducto del controlador catalogo para insertarlo en la cesta
+                        //agregarProducto del controlador carro para insertarlo en la cesta
                         ?>
                         <div class = "card-body">
-                        <?= form_open(base_url() . 'catalogo/agregarProducto') ?>
+                        <?= form_open(base_url() . 'carro/agregarProducto') ?>
                         <div id="imagen">
                         <?php
                             $url = base_url(). "/images/". $producto->nombreimagen . ".png";
