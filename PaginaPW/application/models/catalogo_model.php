@@ -23,9 +23,4 @@ class Catalogo_model extends CI_Model{
     }
 
 }
-
-
-
-
-
 ?>

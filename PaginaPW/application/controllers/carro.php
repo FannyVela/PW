@@ -1,13 +1,13 @@
 <?php
     error_reporting(E_ALL ^ E_DEPRECATED);
 
-    class inicio extends CI_Controller {
+    class carro extends CI_Controller {
         public function _construct(){
             parent::_construct();
+            $this->load->model('carro_model');
         }
 
         public function index() {
-          $this->load->model('carro_model');
           $this->load->view('carro_view');
         }
 
@@ -36,23 +36,14 @@
               'name' => $producto->nombre
           );
 
-          //si hay opciones creamos un array con las opciones y lo metemos
-          //en el carrito
-          if ($producto->opcion) {
-              $insert['options'] = array(
-              $producto->opcion => $producto->opciones[$this->input->post($producto->opcion)]
-              );
-          }
-
           //insertamos al carrito
           $this->cart->insert($insert);
           //cogemos la url para redirigir a la página en la que estabamos
           $uri = $this->input->post('uri');
           //redirigimos mostrando un mensaje con las sesiones flashdata
           //de codeigniter confirmando que hemos agregado el producto
-          $this->session->set_flashdata('agregado', 'El producto fue agregado correctamente');
-          redirect('../catalogo/pagina/'.$uri, 'refresh');
-
+          $this->session->set_flashdata('agregado', 'El producto fue añadido a su carrito');
+          redirect('../inicio/pagina/'.$uri, 'refresh');
           }
 
         function eliminarProducto($rowid){

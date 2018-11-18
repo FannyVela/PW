@@ -190,7 +190,7 @@
                         </div>
 
                         <?= form_hidden('uri', $this->uri->segment(3)) ?>
-                        <!--<?= form_hidden('id', $producto->id) ?>  -->
+                        <?= form_hidden('id', $producto->id) ?>  
                         <?= form_submit('action', 'Agregar al carrito') ?>
                         <?= form_close() ?>
                         </div>
