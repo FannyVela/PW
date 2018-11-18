@@ -24,7 +24,7 @@
             //en la cesta le sumamos uno a la cantidad
             if ($item['id'] == $id)
             {
-                $cantidad = 1 + $item['qty'];
+                $cantidad = $item['qty']+1;
             }
           }
 
@@ -39,11 +39,11 @@
           //insertamos al carrito
           $this->cart->insert($insert);
           //cogemos la url para redirigir a la página en la que estabamos
-          $uri = $this->input->post('uri');
+    //      $uri = $this->input->post('uri');
           //redirigimos mostrando un mensaje con las sesiones flashdata
           //de codeigniter confirmando que hemos agregado el producto
           $this->session->set_flashdata('agregado', 'El producto fue añadido a su carrito');
-          redirect('../inicio/pagina/'.$uri, 'refresh');
+          redirect(base_url().'inicio', 'refresh');
           }
 
         function eliminarProducto($rowid){
@@ -64,14 +64,14 @@
           //y después el mensaje que queremos que contenga, a continuación redirigimos donde queramos
           //y utilizamos como segundo parámetro ‘refresh’.
           $this->session->set_flashdata('productoEliminado', 'El producto fue eliminado correctamente');
-            redirect('../carro', 'refresh');
+            redirect(base_url().'carro', 'refresh');
 
         }
 
         function eliminarCarrito(){
           $this->cart->destroy();
           $this->session->set_flashdata('destruido', 'El carrito fue eliminado correctamente');
-            redirect('../carro', 'refresh');
+            redirect(base_url(). 'carro', 'refresh');
         }
   }
 ?>

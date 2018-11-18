@@ -74,11 +74,10 @@
                                     <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                         <div class="cart_icon">
                                             <img src="<?php echo base_url('images/cart.png') ?>" alt="">
-                                            <div class="cart_count"><span>0</span></div>
+                                            <div class="cart_count"><span><?php echo $this->cart->total_items() ?></span></div>
                                         </div>
                                         <div class="cart_content">
                                             <div class="cart_text"><a href="<?php echo base_url('carro') ?>">Cesta</a></div>
-                                      <!--      <div class="cart_price">0€</div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -136,56 +135,158 @@
                 </div>
             </nav>
 
-            <!-- Cart -->
+            <!--Contenido del carrito-->
 
           	<div class="cart_section">
           		<div class="container">
           			<div class="row">
           				<div class="col-lg-10 offset-lg-1">
           					<div class="cart_container">
-          						<div class="cart_title">Shopping Cart</div>
-          						<div class="cart_items">
-          							<ul class="cart_list">
-          								<li class="cart_item clearfix">
-          									<div class="cart_item_image"><img src="images/shopping_cart.jpg" alt=""></div>
-          									<div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-          										<div class="cart_item_name cart_info_col">
-          											<div class="cart_item_title">Name</div>
-          											<div class="cart_item_text">MacBook Air 13</div>
-          										</div>
-          										<div class="cart_item_color cart_info_col">
-          											<div class="cart_item_title">Color</div>
-          											<div class="cart_item_text"><span style="background-color:#999999;"></span>Silver</div>
-          										</div>
-          										<div class="cart_item_quantity cart_info_col">
-          											<div class="cart_item_title">Quantity</div>
-          											<div class="cart_item_text">1</div>
-          										</div>
-          										<div class="cart_item_price cart_info_col">
-          											<div class="cart_item_title">Price</div>
-          											<div class="cart_item_text">$2000</div>
-          										</div>
-          										<div class="cart_item_total cart_info_col">
-          											<div class="cart_item_title">Total</div>
-          											<div class="cart_item_text">$2000</div>
-          										</div>
-          									</div>
-          								</li>
-          							</ul>
-          						</div>
+          						<div class="cart_title">Cesta</div>
 
-          						<!-- Order Total -->
-          						<div class="order_total">
-          							<div class="order_total_content text-md-right">
-          								<div class="order_total_title">Order Total:</div>
-          								<div class="order_total_amount">$2000</div>
-          							</div>
-          						</div>
+                      <script>
+                        <?php
+                          $destruido = $this->session->flashdata('destruido');
+                          if($destruido)
+                          {
+                        ?>
+                          alert('<?=$destruido?>');
+                        <?php
+                          } // cierre del if
+                         ?>
 
-          						<div class="cart_buttons">
-          							<button type="button" class="button cart_button_clear">Add to Cart</button>
-          							<button type="button" class="button cart_button_checkout">Add to Cart</button>
-          						</div>
+                         <?php
+                           $eliminado = $this->session->flashdata('productoEliminado');
+                           if($eliminado)
+                           {
+                         ?>
+                           alert('<?=$eliminado?>');
+                         <?php
+                           } // cierre del if
+                          ?>
+                      </script>
+
+                      <?php
+                        //Si hay productos en el carrito
+                        if($carrito = $this->cart->contents())
+                        {
+                          $cont = 1;
+                      ?>
+                          <div class="cart_items">
+                            <ul class="cart_list">
+                              <?php
+                                foreach ($carrito as $item)
+                                {
+                              ?>
+                                  <!--producto -->
+                                  <li class="cart_item clearfix">
+                                    <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
+                                      <!--nombre producto -->
+                                      <div class="cart_item_name cart_info_col">
+                                        <?php
+                                        if($cont == 1)
+                                        {
+                                          echo "<div class='cart_item_title'>Nombre</div>";
+                                        }
+                                        ?>
+                                        <div class="cart_item_text">
+                                          <?php
+                                            echo ucfirst($item['name']); //devuelve el string con la 1º letra en mayusculas
+                                           ?>
+                                        </div>
+                                      </div>
+
+                                      <!--cantidad producto -->
+                                      <div class="cart_item_quantity cart_info_col">
+                                        <?php
+                                          if($cont === 1)
+                                          {
+                                            echo "<div class='cart_item_title'>Cantidad</div>";
+                                          }
+                                        ?>
+                                        <div class="cart_item_text">
+                                          <?php echo $item['qty']?>
+                                        </div>
+                                      </div>
+
+                                      <!-- precio por unidad-->
+                                      <div class="cart_item_price cart_info_col">
+                                        <?php
+                                          if($cont === 1)
+                                          {
+                                            echo "<div class='cart_item_title'>Precio</div>";
+                                          }
+                                         ?>
+                                        <div class="cart_item_text">
+                                          <?php echo $item['price'] ."€/u";?>
+                                        </div>
+                                      </div>
+
+                                      <!-- total producto-->
+                                      <div class="cart_item_total cart_info_col">
+                                        <?php
+                                          if($cont === 1)
+                                          {
+                                            echo "<div class='cart_item_title'>Total</div>";
+                                          }
+                                         ?>
+                                        <div class="cart_item_text">
+                                          <?php echo $item['price']*$item['qty'] . "€"; ?>
+                                        </div>
+                                      </div>
+
+                                      <!--eliminar -->
+                                      <div class="cart_item_total cart_info_col">
+                                        <?php
+                                          if($cont === 1)
+                                          {
+                                            echo "<div class='cart_item_title'>Eliminar</div>";
+                                          }
+                                         ?>
+                                        <div class="cart_item_text">
+                                          <?= anchor(base_url().'carro/eliminarProducto/' . $item['rowid'], 'Eliminar') ?>
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                  </li>
+                              <?php
+                                $cont++;
+                                } // del foreach
+                              ?>
+
+                            </ul>
+                          </div>
+
+                          <!-- Precio total -->
+                          <div class="order_total">
+                            <div class="order_total_content text-md-right">
+                              <div class="order_total_title">Total:</div>
+                              <div class="order_total_amount">
+                                <?php
+                                   echo $this->cart->total() . "€";
+                                ?>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Botones -->
+                          <div class="cart_buttons">
+                            <button type="button" class="button cart_button_checkout">Tramitar pedido</button>
+                          </div><br>
+                          <div style="text-align:right; margin-right: 50px;">
+                            <?php
+                               echo anchor(base_url().'carro/eliminarCarrito', 'Vaciar carrito');
+                             ?>
+                          </div>
+
+                      <?php
+                    } else  // fin del if
+                      {
+                          echo "<div> CESTA VACÍA</div>";
+                      }
+                       ?>
+
           					</div>
           				</div>
           			</div>

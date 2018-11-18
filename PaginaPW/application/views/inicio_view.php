@@ -72,11 +72,10 @@
                                     <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                         <div class="cart_icon">
                                             <img src="<?php echo base_url('images/cart.png') ?>" alt="">
-                                            <div class="cart_count"><span>0</span></div>
+                                            <div class="cart_count"><span><?php echo $this->cart->total_items() ?></span></div>
                                         </div>
                                         <div class="cart_content">
                                             <div class="cart_text"><a href="<?php echo base_url('carro') ?>">Cesta</a></div>
-                                      <!--      <div class="cart_price">0€</div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -154,56 +153,62 @@
           	</div>
 
             <div class = "row">
-            <?php
+                <?php
                 //sacamos todos los productos del array productos
                 foreach ($productos as $producto) {
-                    ?>
+                ?>
                     <div class = "col-lg-4 col-sm-6 portfolio-item">
-                      <div class = "card h-100">
-                        <?php
-                        //si existen opciones en el producto las separamos con explode
-                        //cada vez que haya una coma, sino no hacemos nada
-                        //para cada producto creamos un formulario que apuntará a la función
-                        //agregarProducto del controlador carro para insertarlo en la cesta
-                        ?>
-                        <div class = "card-body">
-                        <?= form_open(base_url() . 'carro/agregarProducto') ?>
-                        <div id="imagen">
-                        <?php
-                            $url = base_url(). "/images/". $producto->nombreimagen . ".png";
-                        ?>
-                            <img src="<?php echo $url ?>" width="300" height="300" />
-                        </div>
+                        <div class = "card h-100">
+                            <?php
+                            //si existen opciones en el producto las separamos con explode
+                            //cada vez que haya una coma, sino no hacemos nada
+                            //para cada producto creamos un formulario que apuntará a la función
+                            //agregarProducto del controlador carro para insertarlo en la cesta
+                            ?>
+                            <div class = "card-body">
+                              <?= form_open(base_url() . 'carro/agregarProducto') ?>
+                              <div id="imagen">
+                              <?php
+                                  $url = base_url(). "/images/". $producto->nombreimagen . ".png";
+                              ?>
+                                  <img src="<?php echo $url ?>" width="300" height="300" />
+                              </div>
 
-                          <h4 class = "card-tittle"><?= ucfirst($producto->descripcion) ?></h4>
+                                <h4 class = "card-tittle"><?= ucfirst($producto->descripcion) ?></h4>
 
-                        <!--mostramos las imagenes de los productos-->
-                        <!--
-                        <div id="imagen">
-                            <img src="http://localhost/carritoCI/imagenes/<?= $producto->imagen ?>" width="120" height="110" />
-                        </div> -->
-                        <div id="precio">
-                            <?= $producto->precio ?>
-                        </div>
-                        <div id = "marca">
-                          <?= $producto->marca ?>
-                        </div>
+                              <div id="precio">
+                                  <?= $producto->precio ?>
+                              </div>
+                              <div id = "marca">
+                                <?= $producto->marca ?>
+                              </div>
 
-                        <?= form_hidden('uri', $this->uri->segment(3)) ?>
-                        <?= form_hidden('id', $producto->id) ?>  
-                        <?= form_submit('action', 'Agregar al carrito') ?>
-                        <?= form_close() ?>
+                              <?= form_hidden('uri', $this->uri->segment(3)) ?>
+                              <?= form_hidden('id', $producto->id) ?>
+                              <?= form_submit('action', 'Agregar al carrito') ?>
+                              <?= form_close() ?>
+                            </div>
+                          </div>
                         </div>
-                        </div>
-                        </div>
-                        <?php
-
-                    }
+                  <?php
+                    } //fin foreach
                     ?>
               </div>
               <div class="grid_7">
                 <?= $this->pagination->create_links() ?>
               </div>
+
+              <script>
+                <?php
+                  $agregado = $this->session->flashdata('agregado');
+                  if($agregado)
+                  {
+                ?>
+                  alert('<?=$agregado?>');
+                <?php
+                  } // cierre del if
+                 ?>
+              </script>
 
             <!-- Footer -->
 
