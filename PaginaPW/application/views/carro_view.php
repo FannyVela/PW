@@ -274,7 +274,7 @@
                           <div class="cart_buttons">
                             <button type="button" class="button cart_button_checkout">Tramitar pedido</button>
                           </div><br>
-                          <div style="text-align:right; margin-right: 50px;">
+                          <div style="text-align:right; margin-right: 50px; font-size:18px;">
                             <?php
                                echo anchor(base_url().'carro/eliminarCarrito', 'Vaciar carrito');
                              ?>

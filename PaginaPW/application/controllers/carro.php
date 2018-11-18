@@ -19,14 +19,14 @@
           //obtenemos el contenido del carrito
           $carrito = $this->cart->contents();
 
-          foreach ($carrito as $item) {
+    /*      foreach ($carrito as $item) {
             //si el id del producto es igual que uno que ya tengamos
             //en la cesta le sumamos uno a la cantidad
             if ($item['id'] == $id)
             {
                 $cantidad = $item['qty']+1;
             }
-          }
+          } */
 
           //cogemos los productos en un array para insertarlos en el carrito
           $insert = array(
