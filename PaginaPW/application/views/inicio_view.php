@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesomeAll.css'); ?>">
-
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/inicioStyle.css'); ?>">
     </head>
 
     <body>
@@ -150,50 +150,49 @@
           				</div>
           			</div>
           		</div>
-          	</div>
+          	</div><br>
 
-            <div class = "row">
-                <?php
-                //sacamos todos los productos del array productos
-                foreach ($productos as $producto) {
-                ?>
-                    <div class = "col-lg-4 col-sm-6 portfolio-item">
-                        <div class = "card h-100">
-                            <?php
-                            //si existen opciones en el producto las separamos con explode
-                            //cada vez que haya una coma, sino no hacemos nada
-                            //para cada producto creamos un formulario que apuntará a la función
-                            //agregarProducto del controlador carro para insertarlo en la cesta
-                            ?>
-                            <div class = "card-body">
-                              <?= form_open(base_url() . 'carro/agregarProducto') ?>
-                              <div id="imagen">
-                              <?php
-                                  $url = base_url(). "/images/". $producto->nombreimagen . ".png";
-                              ?>
-                                  <img src="<?php echo $url ?>" width="300" height="300" />
-                              </div>
-
-                                <h4 class = "card-tittle"><?= ucfirst($producto->descripcion) ?></h4>
-
-                              <div id="precio">
-                                  <?= $producto->precio ?>
-                              </div>
-                              <div id = "marca">
-                                <?= $producto->marca ?>
-                              </div>
-
+            <div class = row>
+              <?php
+              //sacamos todos los productos del array productos
+              foreach ($productos as $producto)
+              {
+              ?>
+                <div class="item  col-xs-4 col-lg-4">
+                  <div class="thumbnail">
+                     <?= form_open(base_url() . 'carro/agregarProducto') ?>
+                      <?php
+                          $url = base_url(). "/images/". $producto->nombreimagen . ".png";
+                      ?>
+                      <img class="group list-group-image" src="<?php echo $url ?>" alt="" />
+                      <div class="caption">
+                        <!--nombre -->
+                        <h4 class="group inner list-group-item-heading" style="margin-top: 30px;"> <?= ucfirst($producto->nombre) ?></h4>
+                        <!-- descripcion -->
+                        <p class="group inner list-group-item-text">
+                          <?= ucfirst($producto->descripcion) ?>
+                        </p>
+                        <br>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                              <p class = "lead">
+                                <?php echo "$producto->precio" . "€"?>
+                              </p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
                               <?= form_hidden('uri', $this->uri->segment(3)) ?>
                               <?= form_hidden('id', $producto->id) ?>
-                              <?= form_submit('action', 'Agregar al carrito') ?>
-                              <?= form_close() ?>
+                              <input class = "btn btn-success" type="submit" name="action" value="Agregar al carrito">
+                              <?= form_close() ?> 
                             </div>
-                          </div>
                         </div>
-                  <?php
-                    } //fin foreach
-                    ?>
-              </div>
+                      </div>
+                  </div>
+                </div>
+              <?php
+              } // fin foreach
+              ?>
+            </div>
               <div class="grid_7">
                 <?= $this->pagination->create_links() ?>
               </div>
