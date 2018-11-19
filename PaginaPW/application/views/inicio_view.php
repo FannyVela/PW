@@ -35,7 +35,7 @@
                                           } else{ ?>
                                               <div class="user_icon"><img src="<?php echo base_url('images/user.svg') ?>" alt=""></div>
                                               <div><a href="<?= base_url().'registro'?>">Regístrate</a></div>
-                                              <div><a href="<?= base_url().'index.php/login'?>">Iniciar sesión</a></div>
+                                              <div><a href="<?= base_url().'login'?>">Iniciar sesión</a></div>
                                       <?php } ?>
                                     </div>
 

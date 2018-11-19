@@ -24,8 +24,8 @@
                                 <div class="top_bar_content ml-auto">
                                     <div class="top_bar_user">
                                         <div class="user_icon"><img src="<?php echo base_url('images/user.svg') ?>" alt=""></div>
-                                        <div><a href="<?= base_url().'index.php/registro'?>">Regístrate</a></div>
-                                        <div><a href="<?= base_url().'index.php/login'?>">Iniciar sesión</a></div>
+                                        <div><a href="<?= base_url().'registro'?>">Regístrate</a></div>
+                                        <div><a href="<?= base_url().'login'?>">Iniciar sesión</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
  			</center>
  			<!--formulario-->
  			<center>
- 			<form name="form_iniciar" action="<?=base_url().'index.php/login/verify_sesion'?>" method=POST	>
+ 			<form name="form_iniciar" action="<?=base_url().'login/verify_sesion'?>" method=POST	>
  			<label for="Usuario"> Usuario</label>
  			<input type="text" name="user" /> <br/>
  			<label for="contraseña"> Contraseña</label>

@@ -18,7 +18,7 @@
          		if($variable == true){
          			$variables = array ('username' => $this->input->post('user'));
          			$this->session->set_userdata($variables);
-         			redirect(base_url().'index.php/inicio');
+         			redirect(base_url().'inicio');
          		} else { //el login no es correcto
          			$mensaje = array('mensaje' => 'El usuario/contraseña no son
         			correctos.');
