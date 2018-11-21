@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/slick-1.8.0/slick.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/usuario.css'); ?>">
 </head>
 <body>
 	 <div class="super_container">
@@ -25,7 +26,6 @@
                                     <div class="top_bar_user">
                                         <div class="user_icon"><img src="<?php echo base_url('images/user.svg') ?>" alt=""></div>
                                         <div><a href="<?= base_url().'registro'?>">Regístrate</a></div>
-                                        <div><a href="<?= base_url().'login'?>">Iniciar sesión</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -33,22 +33,79 @@
                     </div>
                 </div>
             </header>
-             <center><h2>Iniciar sesión</h2>
-			 <?php if(isset($mensaje)):?>
- 			<h2><?= $mensaje?></h2>
- 			<?php endif;?>
- 			</center>
- 			<!--formulario-->
- 			<center>
- 			<form name="form_iniciar" action="<?=base_url().'login/verify_sesion'?>" method=POST	>
- 			<label for="Usuario"> Usuario</label>
- 			<input type="text" name="user" /> <br/>
- 			<label for="contraseña"> Contraseña</label>
- 			<input type="password" name="pass" /> <br/>
- 			<input type="submit" value="Entrar" name="submit" /> <br/>
- 			</form>
-			</center>
-        </div>
+
+            <!-- Header Main -->
+            <div class="header_main">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Logo -->
+                        <div class="col-lg-2 col-sm-3 col-3 order-1">
+                            <div class="logo_container">
+                                <div class="logo"><a href="<?= base_url()?>">TecnoPhone</a></div>
+                            </div>
+                        </div>
+
+                        <!-- Wishlist -->
+                        <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right" style="margin-left:50%;">
+                            <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <center>
+               <?php if(isset($mensaje)):?>
+               <h2><?= $mensaje?></h2>
+               <?php endif;?>
+            </center>
+
+            <!--formulario-->
+            <form name="form_iniciar" action="<?=base_url().'login/verify_sesion'?>" method=POST>
+            <h2>Iniciar sesión</h2>
+
+            <fieldset>
+              <label for="Usuario"> Usuario</label>
+ 			  <input type="text" name="user" /> <br/>
+                
+              <label for="contraseña"> Contraseña</label>
+ 			  <input type="password" name="pass" /> <br/>
+            </fieldset>
+                
+            <button type="submit" value="Entrar" name="submit">Iniciar sesión</button>
+            </form>
+         
+                     <!-- Footer -->
+
+          	<footer class="footer">
+          		<div class="container">
+          			<div class="row" >
+          				<div class="col-lg-3 footer_col" style="margin-left: 40%;">
+          					<div class="footer_column footer_contact">
+          						<div >
+          							<div class="logo2"><a href="#">TecnoPhone</a></div>
+          						</div>
+          						<div class="footer_title">Got Question? Call Us 24/7</div>
+          						<div class="footer_phone">+38 068 005 3570</div>
+          						<div class="footer_contact_text">
+          							<p>17 Princess Road, London</p>
+          							<p>Grester London NW18JR, UK</p>
+          						</div>
+          						<div class="footer_social">
+          							<ul>
+          								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+          								<li><a href="#"><i class="fab fa-google"></i></a></li>
+          								<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+          							</ul>
+          						</div>
+          					</div>
+          				</div>
+          			</div>
+          		</div>
+          	</footer>
 
 </body>
 </html>

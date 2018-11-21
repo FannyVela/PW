@@ -60,7 +60,7 @@
                         <!-- Logo -->
                         <div class="col-lg-2 col-sm-3 col-3 order-1">
                             <div class="logo_container">
-                                <div class="logo"><a href="#">TecnoPhone</a></div>
+                                <div class="logo"><a href="<?= base_url()?>">TecnoPhone</a></div>
                             </div>
                         </div>
 
@@ -183,7 +183,7 @@
                               <?= form_hidden('uri', $this->uri->segment(3)) ?>
                               <?= form_hidden('id', $producto->id) ?>
                               <input class = "btn btn-success" type="submit" name="action" value="Agregar al carrito">
-                              <?= form_close() ?> 
+                              <?= form_close() ?>
                             </div>
                         </div>
                       </div>
