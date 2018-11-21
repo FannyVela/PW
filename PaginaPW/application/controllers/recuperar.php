@@ -30,29 +30,25 @@
                             echo "Perfe";
                             echo $correo;
                             date_default_timezone_set('Europe/Madrid');
-                            $this->load->library('email');
-                            $config = array(
+                            $config = Array(
                                 'protocol' => 'smtp',
                                 'smtp_host' => 'ssl://smtp.googlemail.com',
-                                'smtp_user' => 'tecnophonepw@gmail.com', //Su Correo de Gmail Aqui
-                                'smtp_pass' => 'tecnophonepassword', // Su Password de Gmail aqui
                                 'smtp_port' => 465,
-                                'mailtype' => 'html',
-                                'wordwrap' => TRUE,
-                                'charset' => 'utf-8'
-                                );
-                            $this->email->initialize($config);
+                                'smtp_user' => 'tecnophonepw@gmail.com',
+                                'smtp_pass' => 'tecnophonepassword',
+                                'mailtype'  => 'html', 
+                                'charset'   => 'iso-8859-1'
+                            );
+                            $this->load->library('email', $config);
+                            $this->email->set_newline("\r\n");
                             
                             $this->email->from('tecnophonepw@gmail.com');
-                            //$enviar = "'".$correo."'";
                             $this->email->to($correo);
-                            $this->email->subject('Recuperación contraseña');
+                            $this->email->subject('Recuperacion password');
                             $password = $this->usuarios_model->recuperar_password();
-                            $password = "'". $password . "'";
                             $this->email->message(
-                                $password
+                                "password: " . $password
                                 );
-                            //$this->email->message('Hola');
                             if($this->email->send()){
                                 $this->session->set_flashdata('envio', 'Email enviado correctamente');
                                 redirect(base_url("login"));
