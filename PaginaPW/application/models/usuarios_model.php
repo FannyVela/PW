@@ -50,4 +50,26 @@
  		return false;
  		}
  }
+
+	 public function recuperar_correo()
+	 {
+		$consulta = $this->db->query("select correo from usuarios where correo = '".
+		$this->input->post('correo')."'");
+			
+		if($consulta->num_rows() == 1)
+		{
+			$correo = $consulta->row();
+			return $correo->correo;
+		}
+		else
+			return 0;
+	 }
+	 
+	 public function recuperar_password()
+	 {
+		$consulta = $this->db->query("select password from usuarios where correo = '".
+		$this->input->post('correo')."'");
+		$password = $consulta->row();
+			return $password->password;
+	 }
 }

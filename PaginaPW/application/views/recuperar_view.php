@@ -1,7 +1,7 @@
 <html lang="es">
 <head>
  <meta charset="utf-8" />
- <title>Inicio de sesión</title>
+ <title>Recuperar contraseña</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Mobile shop project">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,19 +62,16 @@
             </center>
 
             <!--formulario-->
-            <form name="form_iniciar" action="<?=base_url().'login/verify_sesion'?>" method=POST>
-            <h2>Iniciar sesión</h2>
+            <?=
+                form_open(base_url().'recuperar/correo',array('name'=>'form_reg
+                '));?>
+            <h2>Recuperación de contraseña</h2>
 
             <fieldset>
-              <label for="Usuario"> Usuario</label>
- 			  <input type="text" name="user" /> <br/>
-                
-              <label for="contraseña"> Contraseña</label>
- 			  <input type="password" name="pass" /> <br/>
+              <?= form_label('Correo','Correo'); ?>
+              <?= form_input('correo',@set_value('correo')) ?> <br /> <br />
             </fieldset>
-            <button type="submit" value="Entrar" name="submit">Iniciar sesión</button>
-            <br>
-            <a href="<?= base_url().'recuperar'?>">Recuperar contraseña</a>
+            <button type="submit" value="Registrar" name="submit_reg">Recuperar contraseña</button>
             </form>
             <center></center>
          
