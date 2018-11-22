@@ -73,6 +73,8 @@
             </fieldset>
             <button type="submit" value="Registrar" name="submit_reg">Recuperar contraseña</button>
             </form>
+                 <?= validation_errors(); ?> 
+
             <center></center>
          
                      <!-- Footer -->

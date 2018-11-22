@@ -14,19 +14,14 @@
             if($this->input->post('submit_reg')){
                 //verificar
                 $this->form_validation->set_rules('correo','Correo',
-                'required|valid_email|trim');
+                'required|valid_email|trim|callback_verify_mail');
+                $this->form_validation->set_message('valid_email','El campo %s es invalido.');
+                $this->form_validation->set_message('verify_mail', 'No existe el email');
                     if($this->form_validation->run() ==FALSE){
-                        echo "Peto en el verify";
                         $this->index();
                     }else{
                         //$this->index();
                         $correo = $this->usuarios_model->recuperar_correo();
-                        if($correo === 0)
-                        {
-                            echo "Se formo";
-                            echo $correo;
-                        }
-                        else{
                             echo "Perfe";
                             echo $correo;
                             date_default_timezone_set('Europe/Madrid');
@@ -56,13 +51,23 @@
                                 echo "ERROR al enviar";
                             }
                             
-                        }
                         
                     //aqui va el correo 
                     }
                     //redirect(base_url().'inicio');
                 }
+                
         }
+
+        function verify_mail($correo)
+ 	    {
+ 		    $bool = $this->usuarios_model->verify_mail($correo);
+ 		    if($bool == true){ //existe el email
+ 		    return true; 
+ 		    }else{
+ 		    return false;
+ 		    }
+ 	    }
 
     }
 ?>
