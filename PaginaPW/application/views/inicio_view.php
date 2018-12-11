@@ -158,6 +158,9 @@
               foreach ($productos as $producto)
               {
               ?>
+              <?php if($producto->stock > 0)
+              {
+                ?>
                 <div class="item  col-xs-4 col-lg-4">
                   <div class="thumbnail">
                      <?= form_open(base_url() . 'carro/agregarProducto') ?>
@@ -189,6 +192,7 @@
                       </div>
                   </div>
                 </div>
+                <?php } ?>
               <?php
               } // fin foreach
               ?>

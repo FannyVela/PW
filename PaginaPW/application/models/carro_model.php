@@ -23,5 +23,22 @@ class Carro_model extends CI_Model
         return $producto;
     }
 
+    function realizar_compra()
+    {
+        foreach ($this->cart->contents() as $item)
+        {
+            echo $item['name'];
+            $id = $item['id'];
+            $stock = $this->db->query("select stock from moviles where id = '$id'");
+            $stock = $stock->row()->stock; 
+            //$nuevo = $stock['stock'];
+            $stock -= $item['qty'];    
+            $this->db->query("update moviles SET stock = '$stock' where id = $id");   
+        }
+        $this->cart->destroy();
+        $this->session->set_flashdata('destruido', 'Compra realizada correctamente');
+            redirect(base_url(). 'carro', 'refresh');
+    }
+
 }
 ?>
