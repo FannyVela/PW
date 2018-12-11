@@ -274,7 +274,12 @@
                           <div class="cart_buttons">
                             <div style="text-align:right; margin-right: 50px; font-size:18px;">
                             <?php
+                            if(isset($_SESSION['username']))
+                            {
                                echo anchor(base_url().'pago', 'Tramitar Pedido');
+                            }
+                            else
+                              echo "<p>Debes estar logeado para realizar un pedido</p>";
                              ?>
                           </div>
                           </div><br>
