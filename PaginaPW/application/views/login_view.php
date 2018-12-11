@@ -88,11 +88,10 @@
           						<div >
           							<div class="logo2"><a href="#">TecnoPhone</a></div>
           						</div>
-          						<div class="footer_title">Got Question? Call Us 24/7</div>
-          						<div class="footer_phone">+38 068 005 3570</div>
+          						<div class="footer_title">¿Alguna duda? Contáctanos</div>
+          						<div class="footer_phone">+34 608 005 3570</div>
           						<div class="footer_contact_text">
-          							<p>17 Princess Road, London</p>
-          							<p>Grester London NW18JR, UK</p>
+          							<p>Calle Ancha 22, Madrid</p>
           						</div>
           						<div class="footer_social">
           							<ul>
@@ -108,6 +107,5 @@
           			</div>
           		</div>
           	</footer>
-
 </body>
 </html>

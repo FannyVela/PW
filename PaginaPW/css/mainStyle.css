@@ -155,6 +155,10 @@ section
 	position: relative;
 	box-sizing: border-box;
 }
+.lead{
+    color:black;
+    font-weight: bold;
+}
 .clear
 {
 	clear: both;
@@ -541,7 +545,7 @@ section
 {
 	font-size: 80px;
 	font-weight: 500;
-  color: #0e8ce4;
+    color: #0e8ce4;
 }
 
 .logo2{

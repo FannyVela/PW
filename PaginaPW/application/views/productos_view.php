@@ -1,6 +1,6 @@
 <html lang="es">
     <head>
-        <title>Inicio</title>
+        <title>Smartphones</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Mobile shop project">
@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesomeAll.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/inicioStyle.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/productosStyle.css'); ?>">
     </head>
 
     <body>
@@ -120,94 +120,27 @@
                     </div>
                 </div>
             </nav>
-
-            <!-- Banner -->
-
-            <div class="banner">
-          		<div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
-          		<div class="container fill_height">
-          			<div class="row fill_height">
-          				<div class="banner_product_image"><img src="<?php echo base_url('images/hola.png') ?>" alt=""></div>
-          				<div class="col-lg-5 fill_height">
-          					<div class="banner_content">
-          						<h1 class="banner_text">Los mejores precios en teléfonos móviles</h1>
-          						<div class="banner_price"><span style="width:100px;">1500 €</span></div>
-          						<div class="banner_product_name">Samsung Galaxy Note 9</div>
-          				<!--		<div class="button banner_button" style="margin-left:408px; width: 35%; text-align:center;"><a href="#">Lo quiero</a></div> -->
-          					</div>
-          				</div>
-          			</div>
-          		</div>
-          	</div><br><br>
             
-            <div>
-                <center>
-                <h2 style="color: #EF220D">REBAJAS 30% DE DESCUENTO</h2>
-                </center>
-            </div>
-
-            <div class = row>
-              <?php
-              //sacamos todos los productos del array productos
-              foreach ($productos as $producto)
-              {
-              ?>
-              <?php if($producto->stock > 0 && $producto->oferta == true)
-              {
-                ?>
-                <div class="item  col-xs-4 col-lg-4">
-                  <div class="thumbnail">
-                     <?= form_open(base_url() . 'carro/agregarProducto') ?>
-                      <?php
-                          $url = base_url(). "/images/". $producto->nombreimagen . ".png";
-                      ?>
-                      <img class="group list-group-image" src="<?php echo $url ?>" alt="" />
-                      <div class="caption">
-                        <!--nombre -->
-                        <h4 class="group inner list-group-item-heading" style="margin-top: 30px;"> <?= ucfirst($producto->nombre) ?></h4>
-                        <!-- descripcion -->
-                        <p class="group inner list-group-item-text">
-                          <?= ucfirst($producto->descripcion) ?>
-                        </p>
-                        <br>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-6">
-                              <p class = "lead" style="color:black; font-weight:bold;">
-                                  Oferta
-                                <?php echo "$producto->precio" . "€"?>
-                              </p>
-                            </div>
-                            <div class="col-xs-12 col-md-6">
-                              <?= form_hidden('uri', $this->uri->segment(3)) ?>
-                              <?= form_hidden('id', $producto->id) ?>
-                              <br>
-                              <input class = "btn btn-success" type="submit" name="action" value="Agregar al carrito">
-                              <?= form_close() ?>
-                            </div>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-                <?php } ?>
-              <?php
-              } // fin foreach
-              ?>
-            </div>
-              <div class="grid_7">
-                <?= $this->pagination->create_links() ?>
+              <br><br>
+              <div>
+                  <center><h2>SMARTPHONES</h2></center>
               </div>
+            
+            <!-- Search -->
+            <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+				<div class="header_search">
+				    <div class="header_search_content">
+				        <div class="header_search_form_container">
+				            <form action="" class="header_search_form clearfix" method="post">
+								<input type="search" class="header_search_input" name="search" placeholder="Buscar...">
+								<button type="submit" class="header_search_button trans_300" value="Submit"><img src="<?php echo base_url('images/search.png') ?>" alt=""></button>
+				            </form>
+				        </div>
+				    </div>
+				</div>
+            </div>
 
-              <script>
-                <?php
-                  $agregado = $this->session->flashdata('agregado');
-                  if($agregado)
-                  {
-                ?>
-                  alert('<?=$agregado?>');
-                <?php
-                  } // cierre del if
-                 ?>
-              </script>
+            
 
             <!-- Footer -->
 

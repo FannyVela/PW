@@ -101,19 +101,7 @@
                                 <div class="main_nav_menu" style="margin-left: 35%;">
                                     <ul class="standard_dropdown main_nav_dropdown">
                                         <li><a href="<?= base_url().'inicio'?>">Inicio<i class="fas fa-chevron-down"></i></a></li>
-                                        <li class="hassubs">
-                                            <a href="#">Marcas de móviles<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                                    <ul>
-                                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="<?= base_url().'productos'?>">Smartphones<i class="fas fa-chevron-down"></i></a></li>
                                         <li><a href="contact.html">Contacto<i class="fas fa-chevron-down"></i></a></li>
                                     </ul>
                                 </div>
@@ -312,11 +300,10 @@
           						<div >
           							<div class="logo2"><a href="#">TecnoPhone</a></div>
           						</div>
-          						<div class="footer_title">Got Question? Call Us 24/7</div>
-          						<div class="footer_phone">+38 068 005 3570</div>
+          						<div class="footer_title">¿Alguna duda? Contáctanos</div>
+          						<div class="footer_phone">+34 608 005 3570</div>
           						<div class="footer_contact_text">
-          							<p>17 Princess Road, London</p>
-          							<p>Grester London NW18JR, UK</p>
+          							<p>Calle Ancha 22, Madrid</p>
           						</div>
           						<div class="footer_social">
           							<ul>
