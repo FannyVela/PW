@@ -12,7 +12,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesomeAll.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/productosStyle.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/productos.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/inicioStyle.css'); ?>">
 
         <style type="text/css">
     #buscador{
@@ -152,12 +153,13 @@
                 </div>
             </nav>
 
+            <div class= contenedor>
               <br><br>
               <div>
                   <center><h2>SMARTPHONES</h2></center>
               </div>
 
-                <div id="buscador">                                                 
+                <div id="buscador">
                     <form action="" method = "post">
                         <input type="text" name="buscando" id="buscando" />
                         <input type="submit" value="Buscar" />
@@ -168,22 +170,59 @@
                   if(!$moviles)
                   {
                 ?>
-                    No hay nada que mostrar
+                    0 elementos encontrados
                 <?php
                   } else
                     {
                       foreach($moviles as $fila)
                       {
+                        if($fila->stock > 0)
+                        {
                 ?>
-                          <h3><?= $fila->nombre ?></h3>
-                          <h4><?= $fila->descripcion ?></h4>
-                <?php }
+                          <div class="item  col-xs-4 col-lg-4" style="float:left;">
+                            <div class="thumbnail">
+                               <?= form_open(base_url() . 'carro/agregarProducto') ?>
+                               <?php
+                                   $url = base_url(). "/images/". $fila->nombreimagen . ".png";
+                               ?>
+                               <img class="group list-group-image" src="<?php echo $url ?>" alt="" />
+                               <div class="caption">
+                                 <!--nombre -->
+                                 <h4 class="group inner list-group-item-heading" style="margin-top: 30px;"> <?= ucfirst($fila->nombre) ?></h4>
+                                 <!-- descripcion -->
+                                 <p class="group inner list-group-item-text">
+                                   <?= ucfirst($fila->descripcion) ?>
+                                 </p>
+                                 <br>
+                                 <div class="row">
+                                     <div class="col-xs-12 col-md-6">
+                                       <p class = "lead" style="color:black; font-weight:bold;">
+                                         <?php echo "$fila->precio" . "€"?>
+                                       </p>
+                                     </div>
+                                     <div class="col-xs-12 col-md-6">
+                                       <?= form_hidden('uri', $this->uri->segment(3)) ?>
+                                       <?= form_hidden('id', $fila->id) ?>
+                                       <br>
+                                       <input class = "btn btn-success" type="submit" name="action" value="Agregar al carrito">
+                                       <?= form_close() ?>
+                                     </div>
+                                 </div>
+                              </div>
+                            </div>
+                          </div>
+
+                <?php  }
+                      } //fin foreach
                     }
                 ?>
+            </div>
+
+
 
             <!-- Footer -->
 
-          	<footer class="footer">
+          	<footer class="footer" style = "clear:left;">
           		<div class="container">
           			<div class="row" >
           				<div class="col-lg-3 footer_col" style="margin-left: 40%;">
