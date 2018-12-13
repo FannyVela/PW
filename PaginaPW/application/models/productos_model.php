@@ -1,17 +1,20 @@
 <?php
-    class Productos_model extends CI_Model
-    {
-        public function _construct(){
-                parent::_construct();
-            }
+  if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
-        function buscar($bus) {
-            $this->db->like('nombre',$bus);
-            $this->db->like('descripcion',$bus);
-            $this->db->like('precio',$bus);
-            $this->db->like('marca',$bus);
-           $query = $this->db->get('moviles');
-        }
+  class productos_model extends CI_Model
+  {
+      public function construct()
+      {
+        parent::__construct();
+      }
 
-    }
+      public function buscar($buscar)
+      {
+          $this->db->like('nombre', $buscar);
+          $this->db->or_like('marca', $buscar);
+          $query = $this->db->get('moviles');
+          return $query->result();
+      }
+ }
 ?>

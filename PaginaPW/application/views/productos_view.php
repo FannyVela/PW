@@ -13,6 +13,37 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesomeAll.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/productosStyle.css'); ?>">
+
+        <style type="text/css">
+    #buscador{
+       width: 500px;
+       color: #fff;
+       padding: 20px;
+       margin: 10px 0px 0px 420px;
+    }
+    #buscador input[type=text]{
+        padding: 10px;
+        background-color: darkgrey;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 4px;
+        width: 250px;
+        margin-left: 30px;
+    }
+    #buscador input[type=submit]{
+        padding: 10px;
+        background-color: skyblue;
+        color: #222;
+        border-radius: 4px;
+        width: 150px
+    }
+    #buscador span{
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+    }
+</style>
     </head>
 
     <body>
@@ -120,27 +151,35 @@
                     </div>
                 </div>
             </nav>
-            
+
               <br><br>
               <div>
                   <center><h2>SMARTPHONES</h2></center>
               </div>
-            
-            <!-- Search -->
-            <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
-				<div class="header_search">
-				    <div class="header_search_content">
-				        <div class="header_search_form_container">
-				            <form action="" class="header_search_form clearfix" method="post">
-								<input type="search" class="header_search_input" name="search" placeholder="Buscar...">
-								<button type="submit" class="header_search_button trans_300" value="Submit"><img src="<?php echo base_url('images/search.png') ?>" alt=""></button>
-				            </form>
-				        </div>
-				    </div>
-				</div>
-            </div>
 
-            
+                <div id="buscador">                                                 
+                    <form action="" method = "post">
+                        <input type="text" name="buscando" id="buscando" />
+                        <input type="submit" value="Buscar" />
+                    </form>
+                </div>
+
+                <?php
+                  if(!$moviles)
+                  {
+                ?>
+                    No hay nada que mostrar
+                <?php
+                  } else
+                    {
+                      foreach($moviles as $fila)
+                      {
+                ?>
+                          <h3><?= $fila->nombre ?></h3>
+                          <h4><?= $fila->descripcion ?></h4>
+                <?php }
+                    }
+                ?>
 
             <!-- Footer -->
 
