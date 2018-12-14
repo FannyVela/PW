@@ -132,7 +132,6 @@
                                     <ul class="standard_dropdown main_nav_dropdown">
                                         <li><a href="<?= base_url().'inicio'?>">Inicio<i class="fas fa-chevron-down"></i></a></li>
                                         <li><a href="<?= base_url().'productos'?>">Smartphones<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Contacto<i class="fas fa-chevron-down"></i></a></li>
                                     </ul>
                                 </div>
 
@@ -190,7 +189,7 @@
                                  <!--nombre -->
                                  <h4 class="group inner list-group-item-heading" style="margin-top: 30px;"> <?= ucfirst($fila->nombre) ?></h4>
                                  <!-- descripcion -->
-                                 <p class="group inner list-group-item-text">
+                                 <p class="group inner list-group-item-text" style="height: 55%;">
                                    <?= ucfirst($fila->descripcion) ?>
                                  </p>
                                  <br>

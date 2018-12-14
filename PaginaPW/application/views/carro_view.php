@@ -62,7 +62,7 @@
                         <!-- Logo -->
                         <div class="col-lg-2 col-sm-3 col-3 order-1">
                             <div class="logo_container">
-                                <div class="logo"><a href="#">TecnoPhone</a></div>
+                                <div class="logo"><a href="<?= base_url()?>">TecnoPhone</a></div>
                             </div>
                         </div>
 
@@ -102,7 +102,6 @@
                                     <ul class="standard_dropdown main_nav_dropdown">
                                         <li><a href="<?= base_url().'inicio'?>">Inicio<i class="fas fa-chevron-down"></i></a></li>
                                         <li><a href="<?= base_url().'productos'?>">Smartphones<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="contact.html">Contacto<i class="fas fa-chevron-down"></i></a></li>
                                     </ul>
                                 </div>
 

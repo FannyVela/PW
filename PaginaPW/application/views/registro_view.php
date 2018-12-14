@@ -31,7 +31,7 @@
                             <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="<?php echo base_url('images/mail.png') ?>" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                             <div class="top_bar_content ml-auto">
                                 <div class="top_bar_user">
-                                    <div><a href="<?= base_url().'login'?>">Sign in</a></div>
+                                    <div><a href="<?= base_url().'login'?>">Iniciar sesión</a></div>
                                 </div>
                             </div>
                         </div>
@@ -93,6 +93,34 @@
              
      <hr/>
      <?= validation_errors(); ?> 
+         
+               	<footer class="footer">
+          		<div class="container">
+          			<div class="row" >
+          				<div class="col-lg-3 footer_col" style="margin-left: 40%;">
+          					<div class="footer_column footer_contact">
+          						<div >
+          							<div class="logo2"><a href="#">TecnoPhone</a></div>
+          						</div>
+          						<div class="footer_title">¿Alguna duda? Contáctanos</div>
+          						<div class="footer_phone">+34 608 005 3570</div>
+          						<div class="footer_contact_text">
+          							<p>Calle Ancha 22, Madrid</p>
+          						</div>
+          						<div class="footer_social">
+          							<ul>
+          								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+          								<li><a href="#"><i class="fab fa-google"></i></a></li>
+          								<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+          							</ul>
+          						</div>
+          					</div>
+          				</div>
+          			</div>
+          		</div>
+          	</footer>
          
     </div>
 </body>
