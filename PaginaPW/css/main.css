@@ -155,6 +155,10 @@ section
 	position: relative;
 	box-sizing: border-box;
 }
+.lead{
+    color:black;
+    font-weight: bold;
+}
 .clear
 {
 	clear: both;
@@ -298,6 +302,20 @@ section
 	line-height: 56px;
 	margin-right: 40px;
 }
+
+.welcome_item{
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 56px;
+}
+
+.closeSesion{
+  width:auto;
+  float:right;
+  margin-top: 17px;
+  margin-left: 10px;
+}
+
 .top_bar_contact_item:not(:first-child)
 {
 	margin-right: 0px;
@@ -528,7 +546,11 @@ section
 	font-size: 80px;
 	font-weight: 500;
     color: #0e8ce4;
+}
 
+.logo2{
+  font-size: 30px;
+  font-weight: 500;
 }
 .header_search
 {
@@ -559,8 +581,8 @@ section
 {
 	display: block;
 	position: relative;
-	width: calc((100% - 50px) * 0.601);
 	height: 100%;
+    width: 95%;
 	line-height: 50px;
 	border: none !important;
 	outline: none !important;
@@ -568,21 +590,21 @@ section
 	color: #7f7f7f;
 	float: left;
 }
-.header_search_input::-webkit-input-placeholder
+/*.header_search_input::-webkit-input-placeholder
 {
 	font-size: 16px !important;
 	font-weight: 300;
 	line-height: 50px;
 	color: #a3a3a3 !important;
 }
-.header_search_input:-moz-placeholder /* older Firefox*/
+.header_search_input:-moz-placeholder 
 {
 	font-size: 16px !important;
 	font-weight: 300;
 	line-height: 50px;
 	color: #a3a3a3 !important;
 }
-.header_search_input::-moz-placeholder /* Firefox 19+ */
+.header_search_input::-moz-placeholder 
 {
 	font-size: 16px !important;
 	font-weight: 300;
@@ -602,7 +624,7 @@ section
 	font-weight: 300;
 	line-height: 50px;
 	color: #a3a3a3 !important;
-}
+}*/
 .custom_dropdown
 {
 	width: calc((100% - 50px) * 0.399);
@@ -626,31 +648,8 @@ section
 	background: #e5e5e5;
 	content: '';
 }
-.custom_dropdown_list i
-{
-	display: inline-block;
-	color: #a3a3a3;
-	font-size: 10px;
-	margin-left: 3px;
-	-webkit-transform: translateY(-1px);
-	-moz-transform: translateY(-1px);
-	-ms-transform: translateY(-1px);
-	-o-transform: translateY(-1px);
-	transform: translateY(-1px);
-}
-.custom_dropdown_placeholder
-{
-	display: inline-block;
-	font-size: 16px;
-	font-weight: 300;
-	color: #a3a3a3;
-	line-height: 48px;
-	cursor: pointer;
-}
-.custom_dropdown_placeholder i
-{
 
-}
+
 .custom_list
 {
 	text-align: left;
@@ -667,41 +666,7 @@ section
 	-o-transition: opacity 0.2s ease;
 	transition: all 0.2s ease;
 }
-.custom_list.active
-{
-	visibility: visible;
-	opacity: 1;
-	top: 50px;
-	box-shadow: 0 0 25px rgba(63, 78, 100, 0.15);
-	-webkit-transition: opacity 0.3s ease;
-	-moz-transition: opacity 0.3s ease;
-	-ms-transition: opacity 0.3s ease;
-	-o-transition: opacity 0.3s ease;
-	transition: all 0.3s ease;
-}
-.custom_list li
-{
-	height: 35px;
-	padding-left: 15px;
-	padding-right: 15px;
-	background: #FFFFFF;
-}
-.custom_list li a
-{
-	display: block;
-	color: #a3a3a3;
-	line-height: 35px;
-	border-bottom: solid 1px #ededed;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
-}
-.custom_list li a:hover
-{
-	color: #0e8ce4;
-}
+
 select
 {
 	display: inline;
@@ -742,43 +707,7 @@ select option
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
-.wishlist_cart
-{
-	height: 175px;
-}
-.wishlist
-{
-	margin-right: 50px;
-}
-.wishlist_icon img
-{
-	width: 100%;
-}
-.wishlist_content
-{
-	margin-left: 14px;
-}
-.wishlist_text a
-{
-	font-size: 18px;
-	font-weight: 400;
-	color: #000000;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
-}
-.wishlist_text a:hover
-{
-	color: #0e8ce4;
-}
-.wishlist_count
-{
-	margin-top: -2px;
-	color: #a3a3a3;
-	font-size: 14px;
-}
+
 .cart_count
 {
 	position: absolute;
@@ -1234,7 +1163,7 @@ select option
 {
 	font-size: 30px;
 	color: #df3b3b;
-	margin-top: 87px;
+	margin-top: 40px;
 	margin-left: 100%;
 }
 .banner_price span
@@ -1245,23 +1174,15 @@ select option
 	margin-right: 14px;
 	margin-left: 100%;
 }
-.banner_price span::after
-{
-	display: block;
-	position: absolute;
-	top: 21px;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background: #8d8d8d;
-	content: '';
-}
+
 .banner_product_name
 {
 	font-size: 18px;
 	font-weight: 400;
 	color: #000000;
 	margin-top: 8px;
+  width: 200px;
+  margin-left: 87%;
 }
 .banner_button
 {

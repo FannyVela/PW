@@ -9,42 +9,12 @@
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/slick-1.8.0/slick.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/main.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesomeAll.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/productos.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/inicioStyle.css'); ?>">
 
-        <style type="text/css">
-    #buscador{
-       width: 500px;
-       color: #fff;
-       padding: 20px;
-       margin: 10px 0px 0px 420px;
-    }
-    #buscador input[type=text]{
-        padding: 10px;
-        background-color: darkgrey;
-        color: #fff;
-        font-weight: bold;
-        border-radius: 4px;
-        width: 250px;
-        margin-left: 30px;
-    }
-    #buscador input[type=submit]{
-        padding: 10px;
-        background-color: skyblue;
-        color: #222;
-        border-radius: 4px;
-        width: 150px
-    }
-    #buscador span{
-        color: #fff;
-        font-weight: bold;
-        font-size: 14px;
-        text-align: center;
-    }
-</style>
     </head>
 
     <body>
@@ -156,13 +126,20 @@
               <br><br>
               <div>
                   <center><h2>SMARTPHONES</h2></center>
-              </div>
-
-                <div id="buscador">
-                    <form action="" method = "post">
-                        <input type="text" name="buscando" id="buscando" />
-                        <input type="submit" value="Buscar" />
-                    </form>
+              </div>    
+                
+              <!-- Search -->
+               <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right" style="margin-left:300px;">
+				 <div class="header_search">
+				   <div class="header_search_content">
+				     <div class="header_search_form_container">
+				        <form action="" class="header_search_form " method="post">
+				            <input type="search"  class="header_search_input" name="buscando" placeholder="Buscar...">
+				            <button type="submit" class="header_search_button trans_300" value="Buscar"><img src="images/search.png" alt=""></button>
+				        </form>
+				     </div>
+                   </div>
+				 </div>
                 </div>
 
                 <?php

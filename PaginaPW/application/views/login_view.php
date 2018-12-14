@@ -9,7 +9,7 @@
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('plugins/slick-1.8.0/slick.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/mainStyle.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/main.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/usuario.css'); ?>">
 </head>
