@@ -25,6 +25,19 @@ class Carro_model extends CI_Model
 
     function realizar_compra()
     {
+        $username = $_SESSION['username'];
+        $user_id = $this->db->query("select id from usuarios where username like '$username'");
+        $user_id = $user_id->row()->id;
+        $npedidos = $this->db->query("select count(id) 'id' from pedidos");
+        $npedidos = $npedidos->row()->id;
+        if($npedidos != 0)
+        {
+            $npedidos += 1;
+        }
+
+        else
+            $npedidos = 1;
+
         foreach ($this->cart->contents() as $item)
         {
             echo $item['name'];
@@ -33,7 +46,8 @@ class Carro_model extends CI_Model
             $stock = $stock->row()->stock; 
             //$nuevo = $stock['stock'];
             $stock -= $item['qty'];    
-            $this->db->query("update moviles SET stock = '$stock' where id = $id");   
+            $this->db->query("update moviles SET stock = '$stock' where id = $id");
+            $this->db->query("insert into pedidos (id_usuario, id_movil, id_compra) values ('$user_id', '$id', '$npedidos')");
         }
         $this->cart->destroy();
         $this->session->set_flashdata('destruido', 'Compra realizada correctamente');
