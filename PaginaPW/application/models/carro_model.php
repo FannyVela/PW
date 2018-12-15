@@ -40,7 +40,7 @@ class Carro_model extends CI_Model
 
         foreach ($this->cart->contents() as $item)
         {
-            echo $item['name'];
+            //echo $item['name'];
             $id = $item['id'];
             $stock = $this->db->query("select stock from moviles where id = '$id'");
             $stock = $stock->row()->stock; 
