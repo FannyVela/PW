@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesomeAll.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/productos.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/inicioStyle.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/inicio.css'); ?>">
 
     </head>
 

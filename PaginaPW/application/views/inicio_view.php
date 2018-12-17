@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/main.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/responsive.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/fontawesomeAll.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/inicioStyle.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/inicio.css'); ?>">
     </head>
 
     <body>
@@ -123,7 +123,7 @@
             <!-- Banner -->
 
             <div class="banner">
-          		<div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
+          		<div class="banner_background" style="background-image:url(images/banner_background.jpg);"></div>
           		<div class="container fill_height">
           			<div class="row fill_height">
           				<div class="banner_product_image"><img src="<?php echo base_url('images/hola.png') ?>" alt=""></div>
@@ -193,7 +193,9 @@
               ?>
             </div>
               <div class="grid_7">
+                  <center>
                 <?= $this->pagination->create_links() ?>
+                      </center>
               </div>
 
               <script>

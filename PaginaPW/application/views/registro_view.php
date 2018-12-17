@@ -60,17 +60,7 @@
             </div>
         </div>
 
-                <?php
-                if(isset($mensaje))
-                {
-                    echo "<h2>". $mensaje . "</h2>";
-                    ?>
-                    <h3><center><a href="<?= base_url().'login/'?>" title="Iniciar Sesión">
-                    Iniciar Sesión</a></center></h3>
-                    <?php
-                }
 
-            ?>
                 <?=
                 form_open(base_url().'registro/verify_registro',array('name'=>'form_reg
                 '));?>
@@ -89,7 +79,17 @@
                 <button type="submit" value="Registrar" name="submit_reg">Registrarse</button>
                 </center>
                 <?= form_close(); ?>
-            
+            <?php
+                if(isset($mensaje))
+                {
+                    echo "<h2>". $mensaje . "</h2>";
+                    ?>
+                    <a href="<?= base_url().'index.php/login/'?>" title="Iniciar Sesión">
+                    Iniciar Sesión</a>
+                    <?php
+                }
+
+            ?>
              
      <hr/>
      <?= validation_errors(); ?> 
